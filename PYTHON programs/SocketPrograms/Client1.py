@@ -1,18 +1,23 @@
 import socket
 
-c=socket.socket()
 
-c.connect(('localhost',9999))
+try:
+    c=socket.socket()
 
-c.send(bytes("Welcome To Sockets","utf-8"))
+    c.connect(('localhost',9999))
 
-name=input('What is your name')
+    c.send(bytes("Welcome To Sockets","utf-8"))
 
-age=input('What is your age?')
+    name=input('What is your name')
 
-c.send(bytes(name,'utf-8'))
+    age=input('What is your age?')
 
-c.send(bytes(age,'utf-8'))
+    c.send(bytes(name,'utf-8'))
+
+    c.send(bytes(age,'utf-8'))
 
 
-print('Your Year Of Birth is ', int(c.recv(1024).decode()))
+    print('Your Year Of Birth is ', int(c.recv(1024).decode()))
+
+except ConnectionRefusedError:
+    print("Server Not Ready for Connection")

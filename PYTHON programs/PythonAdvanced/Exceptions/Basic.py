@@ -18,7 +18,7 @@ finally: this code is executed finally whatever may be the exeption above
 
 try:
     f=open("Exceptions",'w')
-    try:
+    try:#Nested Exceptions
 
         a,b=[int(x)for x in input("Enter Two numbers").split()]
 
@@ -31,10 +31,13 @@ try:
     f.write("The Answer is %.2f" %c)
     print("The Answer is %.2f" %c)
 
-except ZeroDivisionError:
+except ZeroDivisionError:# When the error is zero division this block gets executed
     print("Division by zero not allowed")
 
-finally:
+else:# this is used after try and except to execute when no error is raised
+    print("You have enntered a non zero number")
+
+finally:# whatever may be the execution above but this gets executed after the above execution
     f.close()
     print("File Closed")
 
