@@ -22,6 +22,7 @@ Multiple can be done in 3 ways :-
     extend the thread class
         class MyThread(Thread)
     step 2- override  the run()
+    create an instance 
 
 
 
