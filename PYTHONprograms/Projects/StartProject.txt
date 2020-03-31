@@ -1,0 +1,246 @@
+
+
+django-admin --version  -To check the Django version
+
+pip install virtualenvwrapper-win  -To install the virtual environment for django (once is enough)
+
+mkvirtualenv name    - To make the virtual environment  and give name for the Environment
+
+
+pip install django    -To install Django
+
+
+django-admin startproject Name  - TO start a new projectwith Name
+
+
+python m anage.py runserver  - To run server and get an url
+
+workon test   - To work on already created environment
+
+
+cls- to clear the window
+
+
+python manage.py startapp name     - to start the app
+
+
+1.create an urls.py in your newly made app
+
+2. from django.urls import path - as of now this is needed
+3. we need views as well
+   therefore import views
+ 4. to Map we have to the urls so
+
+ we have to
+
+ urlpatterns = [
+    path('',views.home,name='home'),,
+]
+this is where the mapping is specified
+
+then go to views in the views.py and create a functioned mentioned in name=''
+so that whenever a user is request the name then the code inside the function gets executed
+but then this will not work directly bcaz we have to send thaat in a response way
+that is when a client requests then it should response format
+
+
+If we wnt to use that use specilly HTTPresponse
+
+so in view
+"
+from django.shortcuts import render
+from django.http import *
+# Create your views here.
+def home(request):
+    return HttpResponse("<h1>Hello World<h1/>")
+"
+
+THis will be in view.
+
+Then in main urls.py You  have to include the urls of the app
+
+so in main urls.py the code will be
+"
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('',include('calc.urls')),
+    path('admin/', admin.site.urls),
+]
+"
+
+To make a Static page dynamic we use template
+
+
+Icluding HTML pages
+
+1.create a html page outside the app
+2. write the code
+3.Go to settings.py
+4.In templates change dir specify the path
+
+ex.'DIRS': [os.path.join(BASE_DIR,'Templates')]
+
+5.Also change your views.py since it says HttpResponse
+As we wnat to call Html page
+use render instead of http response
+
+It means you have to render the template as it contains dynamic content
+5. changes in views.py
+
+def home(request):
+    return render(request,"home.html")
+
+
+To make dynamic content (name):
+1. GO to view.py
+
+change to as
+def home(request):
+    return render(request,"home.html",{'name': 'Bharath'})
+
+Then in html change to
+
+<h1>Hello {{name}}!!!!</h1>
+
+This makes dynamic
+
+Clubbing two html pages
+1. Create another html in template
+2.Click ! to get layout of html make changes
+
+
+OPerations on Django
+Addition
+1.changes in home.html
+
+
+<form action="add">
+    Enter 1st Number :<input type="text" name="num1">
+    Enter 2st Number :<input type="text" name="num2">
+    <input type="Submit">
+</form>
+
+
+
+2.Create a new file result.html to print the result.html
+
+{% extends 'base.html'%}
+{% block content %}
+
+Result
+
+{% endblock %}
+
+
+3.changes in urls.py in app
+
+
+urlpatterns = [
+    path('',views.home,name='home'),
+    path('add',views.add,name='add')#when ever the add is called in url then it goes to views.add function
+]
+
+4. Changes in views.py
+
+def add(request):
+    val1=int(request.GET['num1'])
+    val2=int(request.GET['num2'])
+    res=val1+val2
+    return render(request,"resutl.html",{'result':res})
+
+5. changes in result.html
+
+{% extends 'base.html'%}
+{% block content %}
+
+Result is {{result}}
+
+{% endblock %}
+
+
+Request Methods
+Here we are going to see get and post
+GET is What is done above
+
+POST is used
+If we dont want to send information in address bar er use the request methods
+
+Changes in home.html
+
+<form method = "post" action="add" >
+
+    {% csrf_token %}
+    Enter 1st Number :<input type="text" name="num1"><br>
+    Enter 2st Number :<input type="text" name="num2"><br>
+    <input type="Submit">
+</form>
+
+changes in views.py
+
+def add(request):
+    val1=int(request.POST['num1'])
+    val2=int(request.POST['num2'])
+    res=val1+val2
+    return render(request,"resutl.html",{'result':res})
+
+Using a Downloaded Theme
+1.start an app
+2.download a theme
+3.copy the index.html in templatesfolder
+4.add urls in the new app
+5.make changes in app urls
+
+urlpatterns = [
+    path('',views.index,name='index'),
+    #path('add',views.add,name='add')#when ever the add is called in url then it goes to views.add function
+]
+
+6.Make changes in main urls
+
+
+add this
+path('',include('Travel.urls')),
+
+Even though all are added the styles and images are not seen and styling are not seen
+
+So create a folder and put all the static files in it
+
+Now go to settings.py
+At the End you can see
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+STATIC_URL = '/static/'
+
+To work with it we have two more settings
+1.Where you will file all the static files
+to do that(since it is multiple paths use a list)
+
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'TravelStatic')
+]
+
+2.Django will make it simple by picking up all the static files and putting the files in django folder
+by
+IN settings.py
+STATIC_ROOT=os.path.join(BASE_DIR,'TravelAsset')
+
+
+In Terminal
+(venv) E:\Bharath\Python\PYTHONprograms\Projects\MyfirstProject>workon test
+(test) E:\Bharath\Python\PYTHONprograms\Projects\MyfirstProject>python manage.py collectstatic
+255 static files copied to 'E:\Bharath\Python\PYTHONprograms\Projects\MyfirstProject\TravelAsset'.
+
+
+now make changes in travel.html file
+wherever urls are mentioned put in jinja format
+first load static by
+
+{% load static %}
+then change all urls
+{% static 'url' %}
+
+

@@ -2,7 +2,7 @@
 from getpass import getpass
 import time
 
-psw=getpass("enter your password")
+psw=getpass("enter your password",{'*'})
 time.sleep(1)
 print(psw)
 
