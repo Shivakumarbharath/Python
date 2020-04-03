@@ -1,9 +1,10 @@
 {% load static %}
+{% static "images" as BaseUrl %}
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
-<title>Bharath's Goa Plan</title>
+<title>Bharg's</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travello template project">
@@ -28,7 +29,7 @@
 				<div class="col">
 					<div class="header_content d-flex flex-row align-items-center justify-content-start">
 						<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
-							<div class="logo"><a href="index.html">Golden Eagles </a></div>
+							<div class="logo"><a href="index.html">Bharath Destination</a></div>
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
 									<li class="active"><a href="index.html">Home</a></li>
@@ -38,7 +39,7 @@
 									<li><a href="contact.html">Contact</a></li>
 								</ul>
 							</nav>
-							<div class="header_phone ml-auto">Call us: 080 -123-456</div>
+							<div class="header_phone ml-auto">Call us: 080-123-456</div>
 
 							<!-- Hamburger -->
 
@@ -80,7 +81,7 @@
 			</ul>
 		</div>
 		<div class="menu_social">
-			<div class="menu_phone ml-auto">Call us: 00-56 445 678 33</div>
+			<div class="menu_phone ml-auto">Call us: 080-123-456</div>
 			<ul class="d-flex flex-row align-items-start justify-content-start">
 				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
 				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -108,7 +109,7 @@
 							<div class="row">
 								<div class="col">
 									<div class="home_slider_content">
-										<div class="home_title"><h2>Bharath's Trip To Goa</h2></div>
+										<div class="home_title"><h2>Bharath's Trip To India</h2></div>
 									</div>
 								</div>
 							</div>
@@ -124,7 +125,7 @@
 							<div class="row">
 								<div class="col">
 									<div class="home_slider_content">
-										<div class="home_title"><h2>Let us take you away</h2></div>
+										<div class="home_title"><h2>Pack Your Bags</h2></div>
 									</div>
 								</div>
 							</div>
@@ -140,7 +141,7 @@
 							<div class="row">
 								<div class="col">
 									<div class="home_slider_content">
-										<div class="home_title"><h2>Let us take you away</h2></div>
+										<div class="home_title"><h2>Bharat Means India</h2></div>
 									</div>
 								</div>
 							</div>
@@ -200,8 +201,8 @@
 								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
 									<div class="intro_icon"><img src="{% static 'images/beach.svg' %}" alt=""></div>
 									<div class="intro_content">
-										<div class="intro_title">Top Destinations</div>
-										<div class="intro_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+										<div class="intro_title">Top Indian Destinations</div>
+										<div class="intro_subtitle"><p>Love The Democracy</p></div>
 									</div>
 								</div>
 							</div>
@@ -212,7 +213,7 @@
 									<div class="intro_icon"><img src="{% static 'images/wallet.svg' %}" alt=""></div>
 									<div class="intro_content">
 										<div class="intro_title">The Best Prices</div>
-										<div class="intro_subtitle"><p>Sollicitudin mauris lobortis in.</p></div>
+										<div class="intro_subtitle"><p>Affordable by Middle Class</p></div>
 									</div>
 								</div>
 							</div>
@@ -223,7 +224,7 @@
 									<div class="intro_icon"><img src="{% static 'images/suitcase.svg' %}" alt=""></div>
 									<div class="intro_content">
 										<div class="intro_title">Amazing Services</div>
-										<div class="intro_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+										<div class="intro_subtitle"><p>Never Before Ever After</p></div>
 									</div>
 								</div>
 							</div>
@@ -241,7 +242,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
-					<div class="section_subtitle">Simply amazing places</div>
+					<div class="section_subtitle">Simply Amazing Places</div>
 					<div class="section_title"><h2>Popular Destinations</h2></div>
 				</div>
 			</div>
@@ -249,78 +250,26 @@
 				<div class="col">
 					<div class="destinations_container item_grid">
 
+						{% for e in dests%}
+
 						<!-- Destination -->
 						<div class="destination item">
 							<div class="destination_image">
-								<img src="{% static 'images/destination_1.jpg' %}" alt="">
+								<img src="{{BaseUrl}}/{{e.img}}" alt="">
+								{% if e.offer == True %}
 								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+								{% endif %}
 							</div>
 							<div class="destination_content">
-								<div class="destination_title"><a href="destinations.html">Bali</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
+								<div class="destination_title"><a href="destinations.html">{{e.name}}</a></div>
+								<div class="destination_subtitle"><p>{{e.desc}}</p></div>
+								<div class="destination_price">From ₹ {{e.price}}</div>
 							</div>
 						</div>
 
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_2.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="destinations.html">Indonesia</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
+						{% endfor %}
 
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_3.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="destinations.html">San Francisco</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
 
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_4.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="destinations.html">Paris</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
-
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_5.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="destinations.html">Phi Phi Island</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
-
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_6.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="destinations.html">Mykonos</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
 
 					</div>
 				</div>
@@ -336,7 +285,7 @@
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_subtitle">simply amazing places</div>
-					<div class="section_title"><h2>Testimonials</h2></div>
+					<div class="section_title"><h2>Quotes Inspire Travel</h2></div>
 				</div>
 			</div>
 			<div class="row testimonials_row">
@@ -348,33 +297,33 @@
 							
 							<!-- Slide -->
 							<div class="owl-item text-center">
-								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>
+								<div class="testimonial">We live in a wonderful world that is full of beauty, charm and adventure. There is no end to the adventures we can have if only we seek them with our eyes open.</div>
 								<div class="testimonial_author">
 									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
-										<div>john turner,</div>
-										<div>client</div>
+										<div>~Jawharlal Nehru</div>
+										<div>India's 1st PM</div>
 									</div>
 								</div>
 							</div>
 
 							<!-- Slide -->
 							<div class="owl-item text-center">
-								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>
+								<div class="testimonial">It is better to travel well than to arrive.</div>
 								<div class="testimonial_author">
 									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
-										<div>john turner,</div>
-										<div>client</div>
+										<div>Gautam Buddha</div>
+										<div></div>
 									</div>
 								</div>
 							</div>
 
 							<!-- Slide -->
 							<div class="owl-item text-center">
-								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>
+								<div class="testimonial">Travel, in the younger sort, is a part of education; in the elder, a part of experience.</div>
 								<div class="testimonial_author">
 									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
-										<div>john turner,</div>
-										<div>client</div>
+										<div>Francis Bacon</div>
+										<div></div>
 									</div>
 								</div>
 							</div>

@@ -243,4 +243,58 @@ first load static by
 then change all urls
 {% static 'url' %}
 
+To make things dynamic
+To make price image destination dynamic create a class in models
+
+class Destination:
+    name: str
+    price: int
+    id: int
+    image: str
+    desc:str
+
+
+But its objects are created in view and changes made in html in jinja format
+
+ex.
+dest1=Destination()
+    dest1.name='BENGALURU'
+    dest1.price=10000
+    dest1.desc='Best Destination to Pubs and Clubs'
+    dest1.id='d001'
+    dest1.img='destination_1'
+in html
+ex. {{dest3.price}}
+
+Loops in Html
+
+
+use jinja format
+
+{% for e in dests %}
+
+						<!-- Destination -->
+						<div class="destination item">
+							<div class="destination_image">
+								<img src="{% static 'images/destination_1.jpg' %}" alt="">
+								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+							</div>
+							<div class="destination_content">
+								<div class="destination_title"><a href="destinations.html">{{dest1.name}}</a></div>
+								<div class="destination_subtitle"><p>{{dest1.desc}}</p></div>
+								<div class="destination_price">From ₹ {{dest1.price}}</div>
+							</div>
+						</div>
+
+						{% endfor %}
+
+We cant use jinja inside jinja so to make imge is nt similar to the other things
+
+{% static "images" as BaseUrl %} #at the top
+
+At loading the images
+<img src="{{BaseUrl}}/{{e.img}}" alt="">
+
+THis does not make jinja inside jinja hence works correctly
+
 
