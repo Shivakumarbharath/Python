@@ -8,5 +8,216 @@ now make changes in Travel.html that a button of register comes in the page in t
 
 add a button by
 <li><a href="accounts/register">Register</a></li>
+Because register belongs to differeb=nt app and that is from accounts
 
-map this butt
+
+Now make changes in view.py
+
+def register(request):
+    return render(request, 'register.html')
+
+Since there is no register.html in temlates create one
+and add the code to register
+
+code
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<form action="register" method="post">
+
+    {% csrf_token %}
+
+    <input type="text" name="FirstName" placeholder="FirstName"><br>
+    <input type="text" name="lastName" placeholder="LastName"><br>
+    <input type="text" name="username" placeholder="UserName"><br>
+    <input type="email" name="email" placeholder="email"><br>
+    <input type="password" name="password" placeholder="Password"><br>
+    <input type="password" name="password1" placeholder="Confirm Password"><br>
+    <input type="Submit">
+
+</form>
+</body>
+</html>
+
+
+the html page is ready
+
+in views if we change
+
+from django.shortcuts import render,redirect
+from django.contrib.auth.models import User,auth
+# Create your views here.
+'''
+Here We are using the same page for both the request
+i.e when the button register is clicked the register page is fetched
+and when submit is clicked
+
+There fore here we use get and post methods to differentiate the both requests
+
+when submitting data is a post request
+
+and when register is called it is a get request
+
+And thus use if else
+'''
+
+
+def register(request):
+    if request.method == 'POST':
+        first_name = request.POST['FirstName']
+        last_name = request.POST['LastName']
+        username = request.POST['username']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
+        email = request.POST['email']
+
+        if password1==password2:
+            if User.objects.filter(username=username).exists():
+                print("Username Exists")
+            elif User.objects.filter(email=email).exists:
+                print("Email Already Existes")
+            else:
+                user=User.objects.create_user(username=username,email=email,password=password1,first_name=first_name,last_name=last_name)
+                user.save()
+                print('User Created')
+        else:
+            print('Password not matcing')
+        return redirect('/')
+    else:
+        return render(request, 'register.html')
+
+
+To print the above  print msgs in html page
+
+
+changes
+
+from django.contrib import messages
+
+
+messages.info(request,"Username Exists")
+return redirect('register')
+
+
+changes in register.html
+
+
+<div>
+
+    {% for messege in messages %}
+
+    <h3>{{message}}</h3>>
+
+    {% endfor %}
+
+</div>
+
+
+For Login create an html for login
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<form action="login" method="post">
+
+    {% csrf_token %}
+
+    <input type="text" name="username" placeholder="UserName"><br>
+    <input type="password" name="password" placeholder="Password"><br>
+    <input type="Submit">
+
+</form>
+
+
+<div>
+
+    {% for message in messages %}
+
+    <h3>{{message}}</h3>>
+
+    {% endfor %}
+
+</div>
+</body>
+</html>
+
+
+map it in the urls
+
+path('login', views.login, name='login'),
+
+
+
+go to views and code for the login
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user=auth.authenticate(request,username=username,password=password)
+
+        if user != None:
+            auth.login(request,user)
+            print("User logged")
+            return redirect('/')
+
+
+        else:
+            messages.info(request,'Wrong Username or Password')
+
+            return redirect('login')
+    else:
+        return render(request,'login.html')
+
+
+Add the login button in the Index.html
+
+and code what shoud happen after login
+
+{% if user.is_authenticated %}
+									<li><a>Hello ,{{ user.first_name }}</a></li>
+									<li><a href="accounts/logout">Logout</a></li>
+
+									{% else %}
+
+									<li><a href="accounts/register">Register</a></li>
+									<li><a href="accounts/login">Login</a></li>
+									{% endif %}
+
+
+
+
+
+For logout
+
+
+create a button in index.html and code as required
+
+<li><a href="accounts/logout">Logout</a></li>
+
+
+map the url
+
+path('logout', views.logout, name='logout'),
+
+
+
+here no need of another html
+
+Go to views.py and make changes
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
+
+This completes the logout process
