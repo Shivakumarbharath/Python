@@ -1,0 +1,149 @@
+Using a database
+install postgres
+install pgadmin4
+
+go to pgadmin4 and create a database
+
+now in python in your project settings.py change
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Django',
+        'USER':'postgres',
+        'PASSWORD':'Bharath',
+        'HOST':'localhost'
+
+    }
+}
+
+now download a connecter
+pip install psycopg2
+
+since django and postges are different software we need a connecter
+so we use psycopg2
+
+
+To make a class as a model changes in a model.py
+
+class Destination(models.Model):
+    name = models.TextField()
+    price = models.DecimalField()
+    img = models.ImageField(upload_to='Tpics')#all images are uploaede
+    desc = models.TextField()
+    offer = models.BooleanField(default=False)
+
+If we wnt to create a table we have to make migrations
+with the command python manage.py makemigrations
+
+Before this in settings.py add your installed apps
+
+INSTALLED_APPS = [
+    'Travel.apps.TravelConfig'
+
+
+    Whenever we want to work with images in django and since we want to upload them
+    so pillow libraryshoulg be there to handle them hence install pillow
+    then make migrations
+    now migrations file is created but the table in databese is not yet created
+
+
+
+to Do that we have to use command
+
+python manage.py sqlmigratr appName migrationfilenumber
+
+ex.
+python manage.py sqlmigrate Travel 0001
+
+if succesfull you will get
+
+-- Create model Destination
+--
+CREATE TABLE "Travel_destination" ("id" serial NOT NULL PRIMARY KEY, "name" text NOT NULL, "price" integer NOT NULL, "img" varchar(100) NOT NULL, "desc" text NOT NULL, "offer" boolean NOT N
+ULL);
+COMMIT;
+
+then again you have to migrate
+
+python manage.py migrate
+
+
+
+Creating an admin panel
+First create a super user
+python manage.py createsuperuser
+
+
+To send the data from the database an d super user we have to register
+the model in adimin in apps to get a page
+
+In admin.py the changes are
+admin.site.register(Destination)
+
+Till now the data are added to tables
+
+Add and fetch data from the database (mainly for image)
+
+We need to work with that media file
+for that in settings.py and here we should add the path for the media
+
+
+changes in setting.py
+
+#we also need to specify the urls we are going to use in your views
+MEDIA_URL  = '/Travelmedia/'
+
+#this is where we need to specify the location
+MEDIA_ROOT =os.path.join(BASE_DIR,'Travelmedia')
+
+
+
+We also need to change the urls in main folder
+
+change=
+""
+from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    path('',include('Travel.urls')),#which ever u want to work with put that as the first url
+    path('calc',include('calc.urls')),
+    path('admin/', admin.site.urls),
+
+]
+#Add the path for media througth database
+urlpatterns=urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+# we have to pass two parameteres
+#1 for url
+#2 for the root
+""
+
+Now Add some data in /admin login so that that the data is added
+
+now in views.py
+
+changes
+
+def index(request):
+    # to accec destinations
+    dests=Destination.objects.all()
+
+    return render(request,'Travelindex.html',{'dests': dests})
+
+But the images will not appear since the images are not in base url as mentioned earlier
+
+
+there fore changes in Travel.html
+
+wherever there is
+<img src="{{BaseUrl}}/{{e.img}}" alt="">
+
+
+change it to
+<img src="{{e.img.url}}" alt="">
+
+Because we have to go to  global url there
+
+Thsi will Work

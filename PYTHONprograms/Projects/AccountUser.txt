@@ -1,0 +1,12 @@
+To create an account by an user
+
+create another app called accounts
+make all the changes required for urls in the app and map it to the main project url
+
+
+now make changes in Travel.html that a button of register comes in the page in template
+
+add a button by
+<li><a href="accounts/register">Register</a></li>
+
+map this butt

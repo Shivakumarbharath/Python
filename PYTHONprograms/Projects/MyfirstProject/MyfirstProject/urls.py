@@ -15,10 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('',include('Travel.urls')),#which ever u want to work with put that as the first url
     path('calc',include('calc.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/',include('accounts.urls'))
 
 ]
+#Add the path for media througth database
+urlpatterns=urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+# we have to pass two parameteres
+#1 for url
+#2 for the root

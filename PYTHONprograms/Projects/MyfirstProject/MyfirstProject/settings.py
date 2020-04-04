@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'Travel.apps.TravelConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'MyfirstProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Django',
+        'USER':'postgres',
+        'PASSWORD':'Bharath',
+        'HOST':'localhost'
+
     }
 }
 
@@ -122,3 +127,9 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'TravelStatic')
 ]
 STATIC_ROOT=os.path.join(BASE_DIR,'TravelAsset')
+
+#we also need to specify the urls we are going to use in your views
+MEDIA_URL  = '/Travelmedia/'
+
+#this is where we need to specify the location
+MEDIA_ROOT =os.path.join(BASE_DIR,'Travelmedia')

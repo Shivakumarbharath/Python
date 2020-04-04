@@ -34,8 +34,9 @@
 								<ul class="d-flex flex-row align-items-start justify-content-start">
 									<li class="active"><a href="index.html">Home</a></li>
 									<li><a href="about.html">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="news.html">News</a></li>
+
+
+									<li><a href="accounts/register">Register</a></li>
 									<li><a href="contact.html">Contact</a></li>
 								</ul>
 							</nav>
@@ -255,7 +256,7 @@
 						<!-- Destination -->
 						<div class="destination item">
 							<div class="destination_image">
-								<img src="{{BaseUrl}}/{{e.img}}" alt="">
+								<img src="{{e.img.url}}" alt="">
 								{% if e.offer  == True %}
 								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
 								{% endif %}
