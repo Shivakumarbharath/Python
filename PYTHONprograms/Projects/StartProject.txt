@@ -249,7 +249,6 @@ To make price image destination dynamic create a class in models
 class Destination:
     name: str
     price: int
-    id: int
     image: str
     desc:str
 
@@ -259,6 +258,7 @@ But its objects are created in view and changes made in html in jinja format
 ex.
 dest1=Destination()
     dest1.name='BENGALURU'
+    id: int
     dest1.price=10000
     dest1.desc='Best Destination to Pubs and Clubs'
     dest1.id='d001'
