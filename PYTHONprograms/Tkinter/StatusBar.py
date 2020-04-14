@@ -35,6 +35,11 @@ bd- for the border
 To look sunkun down a lttle bit so we use 
 
 relief-SUNKEN
+There are 4 options for relief
+1.SUNKEN
+2.RIDGE
+3.GROOVE
+4.RASIED
 
 anchor - to place it in the sunken place that is east or west
 
