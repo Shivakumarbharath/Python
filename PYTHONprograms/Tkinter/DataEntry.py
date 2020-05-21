@@ -32,7 +32,8 @@ def Enter():
 
     y = title.split(' ')
     brand = y[0]
-    liters = int(y[1])
+    l=title.split(" L ")
+    liters = int(l[0][-3:])
     st = title.split(" Star ")
     stars = st[0][-1]
     m = title.split(' (')
@@ -52,8 +53,9 @@ def Enter():
     print(num)
 
     text='Last Entry'
-    for e in send:
-        text=text+'\n'+str(e)
+    for i,e in enumerate(send):
+        if i !=2:
+            text=text+'\n'+str(e)
 
     show=Label(root,text=text)
     show.place(relx=0,rely=0.7)
