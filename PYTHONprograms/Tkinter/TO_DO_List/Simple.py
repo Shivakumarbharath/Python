@@ -66,35 +66,41 @@ class Create:
         self.database.commit()
         self.database.close()
 
+        #To get from the database if previously stored
         self.Retrive_from_database()
 
+        #mouse wheel binding
         self.canvas.bind('<Enter>', self._bound_to_mousewheel)
         self.canvas.bind('<Leave>', self._unbound_to_mousewheel)
 
-        return
 
-    def _bound_to_mousewheel(self, event):
+    #The 3 functions are used to bound the mouse wheel to the scroll bar
+    def _bound_to_mousewheel(self, event):#to bound only when the mouse is inside the canvas
         self.canvas.bind_all("<MouseWheel>", self._on_mousewheel)
 
-    def _unbound_to_mousewheel(self, event):
+    def _unbound_to_mousewheel(self, event):#to unbind the mouse wheel when outside the canvas
         self.canvas.unbind_all("<MouseWheel>")
 
-    def _on_mousewheel(self, event):
+    def _on_mousewheel(self, event):#funtion while binding
         self.canvas.yview_scroll(int(-1 * (event.delta / 100)), "units")
+        #the first parameter is for controlling the speed
+        #can bse changed by changing the number 100
+
+
 
     # to add the task to the container frame and to the memory
     def Add_task(self,text):
-        try:
-            self.task=IntVar()
 
-            c = Checkbutton(self.containerFrame, text=text,variable=self.task, onvalue=1, offvalue=0)
-            c.pack(padx=10,pady=10,anchor=W)
-            c.deselect()
-            self.tasks_dict[text]=(self.task,self.task.get())
-            self.Add_to_database(text,self.task.get())
-            self.ask.destroy()
-        except:
-            k=messagebox.showerror("Excessive Add Eask Windows","Cancel All the add task windows and try again")
+        self.task=IntVar()
+
+        c = Checkbutton(self.containerFrame, text=text,variable=self.task, onvalue=1, offvalue=0)
+        c.pack(padx=10,pady=10,anchor=W)
+        c.deselect()
+        self.tasks_dict[text]=(self.task,self.task.get())
+        self.Add_to_database(text,self.task.get())
+        self.ask.destroy()
+        #except:
+         #   k=messagebox.showerror("Excessive Add Eask Windows","Cancel All the add task windows and try again")
 
     #To get the task from the user and to add to the dictionary
     def Ask_task(self):
@@ -109,7 +115,7 @@ class Create:
         self.Ad_button.place(relx=0.1,rely=0.6)
 
 
-    #to saves the changes
+    #to saves the changes in the database
     def Save(self):
         for e in self.tasks_dict:
             self.tasks_dict[e]=(self.tasks_dict[e][0],self.tasks_dict[e][0].get())
@@ -117,7 +123,7 @@ class Create:
         self.database = sqlite3.connect("DO_Not_Delete.db")
         self.c = self.database.cursor()
 
-        for e in self.tasks_dict:
+        for e in self.tasks_dict:#to change in the dictionary and in database
             self.tasks_dict[e]=(self.tasks_dict[e][0],self.tasks_dict[e][0].get())
             self.c.execute("UPDATE general  SET status={} WHERE  tasks='{}'".format(self.tasks_dict[e][0].get(),e))
 
@@ -128,7 +134,7 @@ class Create:
 
         print(self.tasks_dict)
 
-
+    #To add the new entry to the database
     def Add_to_database(self,entries,status_of_entry):
         self.database=sqlite3.connect("DO_Not_Delete.db")
         self.c = self.database.cursor()
@@ -139,6 +145,7 @@ class Create:
         self.database.commit()
         self.database.close()
 
+    #To retrive from the database and display in the form of comboboxes
     def Retrive_from_database(self):
 
         self.database = sqlite3.connect("DO_Not_Delete.db")
@@ -152,17 +159,25 @@ class Create:
 
             for e in self.details:
 
+                #variavle initialisation
                 variable=IntVar()
+                #since diferent variables are needed for each combobox
+                #add and use the last element in the list
                 temp_lst.append(variable)
                 widgetlist.append(Checkbutton(self.containerFrame,variable=temp_lst[-1], text=e[1], onvalue=1, offvalue=0))
                 widgetlist[-1].pack(padx=10, pady=10, anchor=W)
+
+                #if the task is already done and stored in the database
+                #to check the combobox
                 if e[2]==1:
                     widgetlist[-1].select()
                 else:
                     widgetlist[-1].deselect()
 
 
+                #set the result from the database to the variable in the list
                 temp_lst[-1].set(e[2])
+                #save it to the dictionary so that all the changes is done from the dictionary
                 self.tasks_dict[e[1]] = (temp_lst[-1], e[2])
 
 
