@@ -336,6 +336,10 @@ class Menu_Class:
         qLab=Label(self.canvas_home,text='Conquer yourself and the\nwhole universe is yours...'.title(),bg='#f2f2f2',font=('helvatica',8,'italic'))
         qLab.place(relx=0.05,rely=0.9)
 
+        qLab = Label(self.canvas_home, text=' Created By Shivakumar Bharath'.title(),
+                      font=('helvatica', 6, 'italic'))
+        qLab.place(relx=0.01, rely=0.01)
+
 
         self.Profile()
 
