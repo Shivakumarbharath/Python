@@ -15,10 +15,11 @@ root.resizable(0,0)
 
 
 class Create_Category:
-    tasks_dict = {}
-    widgetlist = []
+
+
 
     def __init__(self, master, catogory_name):
+        self.widgetlist = []
         self.catogory_name = catogory_name
         # Create a frame and pack
         self.baseFrame = Frame(master, bg='white')
@@ -104,8 +105,9 @@ class Create_Category:
         self.database.close()
 
         # To get from the database if previously stored
+        self.tasks_dict = {}
         self.Retrive_from_database()
-        print(self.tasks_dict,'79')
+        #print(self.tasks_dict,'79')
 
         # mouse wheel binding
         self.canvas.bind('<Enter>', self._bound_to_mousewheel)
@@ -237,6 +239,7 @@ class Create_Category:
                 # set the result from the database to the variable in the list
                 temp_lst[-1].set(e[2])
                 # save it to the dictionary so that all the changes is done from the dictionary
+
                 self.tasks_dict[e[1]] = (temp_lst[-1], e[2])
 
         self.database.commit()
@@ -252,7 +255,7 @@ class Create_Category:
         self.del_wind.iconbitmap(icon)
         self.list_frame = Frame(self.del_wind,bg='white')
         self.delete_button = Button(self.del_wind, text="Delete",
-                                    command=lambda: self.Delete_task(self.del_list.get(ANCHOR),bg='white'))
+                                    command=lambda: self.Delete_task(self.del_list.get(ANCHOR)))
         my_scrollbar = Scrollbar(self.list_frame, orient=VERTICAL)
 
         self.del_list = Listbox(self.list_frame, bd=3, width=40, yscrollcommand=my_scrollbar.set)
@@ -261,6 +264,8 @@ class Create_Category:
         self.list_frame.place(x=0, y=0)  # fill=BOTH,expand=1)
         self.del_list.pack(padx=15, pady=15)
         self.delete_button.place(relx=0.4, rely=0.8)
+
+        print(self.tasks_dict)
 
         for i, e in enumerate(self.tasks_dict):
             self.del_list.insert(i, e)
@@ -375,7 +380,7 @@ class Menu_Class:
 
 
 
-        print(self.details,'314')
+       # print(self.details,'314')
 
     def Del_children(self):
         if self.root.winfo_exists() == 1:
@@ -383,11 +388,11 @@ class Menu_Class:
                 e.destroy()
 
     def Call_category(self,name):
-        print(self.root.winfo_children(), '325')
+        #print(self.root.winfo_children(), '325')
         self.Del_children()
 
         Create_Category(self.root, name)
-        print(self.root.winfo_children(),'325')
+        #print(self.root.winfo_children(),'325')
 
     def Create_Category_menu(self,name):
 
@@ -450,7 +455,7 @@ class Menu_Class:
         self.del_list.pack(padx=15, pady=15)
         self.delete_button.place(relx=0.4, rely=0.8)
 
-        print(self.details,'393')
+        #print(self.details,'393')
 
         for i, e in enumerate(self.details):
             self.del_list.insert(i, e[0])
