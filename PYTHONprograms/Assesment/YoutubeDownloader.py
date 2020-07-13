@@ -21,7 +21,7 @@ else:
     print('Please select appropriatly')
     exit()
 
-res_query=int(input('Select Resolution\n1.144p\n2.240p\n3.360p\n4.480p\n5.720p\n6.1080p'))
+
 
 
 
@@ -36,10 +36,11 @@ except:
 
 if type1==2:
     stream=yt.streams.filter(mime_type=mime_type).first()
-    stream.download()
+    stream.download(filename=name)
     print("Download successfull")
     exit()
 def resolution():
+    res_query = int(input('Select Resolution\n1.144p\n2.240p\n3.360p\n4.480p\n5.720p\n6.1080p'))
     res=''
     if res_query==1:
         res='144p'
