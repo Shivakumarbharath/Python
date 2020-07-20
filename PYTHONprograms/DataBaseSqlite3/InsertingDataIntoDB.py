@@ -12,7 +12,7 @@ c=conn.execute("""INSERT INTO Employee_records(ID,name,dept,STARS)
 VALUES(?,?,?,?)
 
 
-""",id,name,dept,stars)
+""",(id,name,dept,stars))
 
 
 '''

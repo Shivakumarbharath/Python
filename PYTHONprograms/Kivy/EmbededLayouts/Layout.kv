@@ -1,0 +1,78 @@
+<myGridLayout>
+    rows:2
+    FloatLayout:
+        Button:
+            size_hint:.3,.3
+            pos:0,0
+            text:'F1'
+
+    RelativeLayout:
+        Button:
+            size_hint:.3,.3
+            pos:0,0
+            text:'R1'
+
+
+    GridLayout:
+        cols:2
+        spacing:10
+        Button:
+            size_hint_x:None
+            width:50
+            text:'g1'
+        Button:
+
+            text:'g2'
+
+        Button:
+            size_hint_x:None
+            width:50
+            text:'g3'
+
+
+    AnchorLayout:
+        anchor_x:'right'
+        anchor_y:'top'
+
+        Button:
+            size_hint:[.5,.5]
+            text:'A1'
+        Button:
+            size_hint:[.2,.2]
+            text:'A2'
+
+
+    BoxLayout:
+        orientation:'horizontal'
+        Button:
+            text:'B1'
+        Button:
+            text:'B2'
+            size_hint:[.2,.3]
+            pos_hint:{'y':.4}
+        Button:
+            text:'b3'
+
+
+
+    StackLayout:
+        orientation:'rl-tb'
+        padding:10
+        Button:
+            text:'S1'
+            size_hint:[.6,.2]
+
+
+        Button:
+            text:'S2'
+            size_hint:[.4,.4]
+
+
+        Button:
+            text:'S3'
+            size_hint:[.3,.3]
+
+
+        Button:
+            text:'S1'
+            size_hint:[.4,.3]

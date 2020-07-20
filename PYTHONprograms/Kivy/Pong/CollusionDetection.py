@@ -85,6 +85,7 @@ class PongGame(Widget):
 
 class PongApp(App):
     def build(self):
+        #self.load_kv("Pong.kv")#sometimes in linux the program does not detect the .kv file
         game = PongGame()
         game.serve_ball()
         Clock.schedule_interval(game.update, 1.0 / 60.0)

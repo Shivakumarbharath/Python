@@ -1,0 +1,14 @@
+<Button>
+    size_hint:.3,.4
+    background_color:.6,.8,1,1
+
+<FloatLayout>
+    Button:
+        id:btn
+        text:'Hello' if btn.state=='normal' else"Hola"
+        pos_hint:{'x':.2,'top':.8}
+
+    Button:
+        id:btn2
+        text:"up" if btn2.state=='down'   else "Bharath"
+        pos_hint:{'x':.6,'top':.6}
