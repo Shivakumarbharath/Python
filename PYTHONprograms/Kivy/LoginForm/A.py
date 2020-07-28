@@ -4,10 +4,8 @@ from kivy.lang.builder import Builder
 from kivy.properties import ObjectProperty
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button
-from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
-from kivy.config import Config
 from kivy.uix.gridlayout import GridLayout
 import sqlite3
 
@@ -17,11 +15,6 @@ class Main(Screen):
     last_name = ObjectProperty(None)
     email = ObjectProperty(None)
     contact = ObjectProperty(None)
-
-
-
-
-
 
 
     def getValues(self):
@@ -62,7 +55,7 @@ class Main(Screen):
         self.grid.add_widget(self.text)
         popbtn = Button(text="search")
         self.grid.add_widget(popbtn)
-        pop = Popup(title="Edit", content=self.grid, size_hint=(None, None), size=(200, 200))
+        pop = Popup(title="Edit", content=self.grid, size_hint=(None, None), size=(300, 300))
         popbtn.bind(on_press=lambda x: self.pop(self.text.text), on_release=lambda x:pop.dismiss())
         pop.open()
 
@@ -101,7 +94,7 @@ class Edit(Screen):
             Editgrid.add_widget(Label(text='Your Name is not Registered in Database\nPlease Register!!!'))
             popbtn = Button(text="Ok")
             Editgrid.add_widget(popbtn)
-            pop = Popup(title="Not Found", content=Editgrid, size_hint=(None, None), size=(300, 200))
+            pop = Popup(title="Not Found", content=Editgrid, size_hint=(None, None), size=(400, 300))
             popbtn.bind( on_release=lambda x: pop.dismiss())
             pop.open()
             sm.current='login'

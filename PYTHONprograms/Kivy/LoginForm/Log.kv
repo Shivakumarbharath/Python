@@ -24,27 +24,14 @@ Manager:
     GridLayout:
         rows:4
 
-        GridLayout:
-            cols:3
-            size_hint:[0,0.25]
 
-            Widget:
-                pos_hint: {'left': 1,'top': 1}
-                size_hint: 0.3,0.25
+        FloatLayout:
+            size_hint:[1,0.2]
 
-
-                canvas:
-
-                    Color:
-                        rgb: 0,0,0
-
-                    Rectangle:
-                        size:self.size
-                        pos:self.pos
 
             Widget:
                 pos_hint: {'center_x': 0.5,'top': 1}
-                size_hint: 0.2,0.25
+                size_hint: 0.2,1
 
 
                 canvas:
@@ -54,18 +41,7 @@ Manager:
                         size:self.size
                         pos:self.pos
                         source:'loginpage.png'
-            Widget:
-                pos_hint: {'right': 1,'top': 1}
-                size_hint: 0.3,0.25
 
-
-                canvas:
-                    Color:
-                        rgb: 0,0,0
-
-                    Rectangle:
-                        size:self.size
-                        pos:self.pos
 
 
 
@@ -166,29 +142,17 @@ Manager:
     em:em
     con:con
     GridLayout:
-        rows:4
-
-        GridLayout:
-            cols:3
-            size_hint:[0,0.25]
-
-            Widget:
-                pos_hint: {'left': 1,'top': 1}
-                size_hint: 0.3,0.25
+        rows:3
 
 
-                canvas:
 
-                    Color:
-                        rgb: 0,0,0
+        FloatLayout:
+            size_hint:[1,0.2]
 
-                    Rectangle:
-                        size:self.size
-                        pos:self.pos
 
             Widget:
                 pos_hint: {'center_x': 0.5,'top': 1}
-                size_hint: 0.2,0.25
+                size_hint: 0.2,1
 
 
                 canvas:
@@ -198,18 +162,6 @@ Manager:
                         size:self.size
                         pos:self.pos
                         source:'loginpage.png'
-            Widget:
-                pos_hint: {'right': 1,'top': 1}
-                size_hint: 0.3,0.25
-
-
-                canvas:
-                    Color:
-                        rgb: 0,0,0
-
-                    Rectangle:
-                        size:self.size
-                        pos:self.pos
 
 
 
@@ -265,15 +217,24 @@ Manager:
 
 
 
-        BoxLayout:
-            orientation:'horizontal'
+        FloatLayout:
+
             padding:[40,5,40,5]# [padding_left, padding_top, padding_right, padding_bottom].
-            size_hint:[0,.15]
+            size_hint:[1,.15]
+
+
+
 
 
 
             Button:
                 text:'Save'
+
+                size_hint:[None,.4]
+                pos_hint:{'right':0.6,'y':0.3}
+                width:300
+
+
                 background_color:0.5,0.5,0.5,1
                 on_press:root.Save()
 
