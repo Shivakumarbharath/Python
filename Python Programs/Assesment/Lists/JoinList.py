@@ -6,6 +6,5 @@ Expected Output: 113350
 
 '''
 
-
-lst=[11, 33, 50]
+lst = [11, 33, 50]
 print(''.join([str(x) for x in lst]))

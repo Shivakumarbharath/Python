@@ -132,17 +132,20 @@ determines which n and x object to use.
 
 '''
 
-def update(n,x):
-    n=2
+
+def update(n, x):
+    n = 2
     x.append(5)
 
-    print('Update',n,x)
+    print('Update', n, x)
+
 
 def main():
-    n=1
-    x=[0,1,2,3,4]
-    print('main',n,x)
-    update(n,x)
-    print('main',n,x)
+    n = 1
+    x = [0, 1, 2, 3, 4]
+    print('main', n, x)
+    update(n, x)
+    print('main', n, x)
+
 
 main()

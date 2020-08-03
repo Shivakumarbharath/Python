@@ -16,18 +16,19 @@ Stacks and queues  in a single data structure
 
 '''
 
+
 class Deque:
     def __init__(self):
-        self.items=[]
+        self.items = []
 
     def isEmpty(self):
-        return self.items==[]
+        return self.items == []
 
-    def AddFront(self,item):
+    def AddFront(self, item):
         self.items.append(item)
 
-    def AddRear(self,item):
-        self.items.insert(0,item)
+    def AddRear(self, item):
+        self.items.insert(0, item)
 
     def RemoveaRear(self):
         return self.items.pop(0)
@@ -35,15 +36,8 @@ class Deque:
     def RemiceFront(self):
         return self.items.pop()
 
-
-
     def size(self):
         return len(self.items)
 
     def __str__(self):
         return str(self.items)
-
-
-
-
-

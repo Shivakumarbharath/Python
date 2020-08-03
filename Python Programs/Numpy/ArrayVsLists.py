@@ -1,15 +1,15 @@
 import numpy as np
 
-l=[1,2,3]
+l = [1, 2, 3]
 
-a=np.array(l)
+a = np.array(l)
 
 for e in a:
     print(e)
 
 l.append(4)
-#size of list is not fixed
-#size of array is fixed
+# size of list is not fixed
+# size of array is fixed
 
 '''
 SimmilaritiesL:

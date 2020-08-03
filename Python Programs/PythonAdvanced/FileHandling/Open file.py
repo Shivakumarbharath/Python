@@ -1,6 +1,6 @@
 # files are where data is stored
 
-#Syntax variable = open ("filename.extention","mode",buffer)  buffer = 4096 or 8092
+# Syntax variable = open ("filename.extention","mode",buffer)  buffer = 4096 or 8092
 '''
 modes are:
 w =write (all contents will deleted and replaced)
@@ -15,6 +15,6 @@ to deal with binary files append b
 ex= wb,rb,w+b etc...
 '''
 
-fp=open(r'test.txt','w')#here r means raw which prevents the use of \n \t etc
+fp = open(r'test.txt', 'w')  # here r means raw which prevents the use of \n \t etc
 print(fp)
 fp.close()

@@ -6,9 +6,9 @@
 # print(text)
 # f.close()
 
-f=open("book.txt",'w')
+f = open("book.txt", 'w')
 f.write("line 1\n line 2\n line 3")
 f.close()
-f=open("book.txt",'r')
-text=f.readline(2)# to read a particular line ;mutiple lnes use readlines
+f = open("book.txt", 'r')
+text = f.readline(2)  # to read a particular line ;mutiple lnes use readlines
 print(text)

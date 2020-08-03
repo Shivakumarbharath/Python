@@ -96,15 +96,15 @@ We can use now the transpose method to flip the array around.
 
 import numpy as np
 
-zero_vector=np.zeros(5)
+zero_vector = np.zeros(5)
 
-zero_matrix=np.zeros((5,3))
+zero_matrix = np.zeros((5, 3))
 
 print(zero_vector)
 
 print(zero_matrix)
 
-a=np.array([[1,2,3],[6,5,4]])
+a = np.array([[1, 2, 3], [6, 5, 4]])
 print(a)
 
 print(a.transpose())

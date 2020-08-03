@@ -14,7 +14,7 @@ Expected Output:
 999999999
 
 '''
-#soln
+# soln
 # for i in range(1,10):
 #     print(str(i)*i)
 
@@ -45,7 +45,6 @@ else:
 
 '''
 
-
 '''
 Write a Python program to check a triangle is equilateral, isosceles or scalene. Go to the editor
 Note :
@@ -74,9 +73,6 @@ else:
     print('Scalene triangle')
 '''
 
-
-
-
 '''
 Write a Python program to check whether an alphabet is a vowel or consonant. Go to the editor
 Expected Output:
@@ -85,12 +81,12 @@ Input a letter of the alphabet: k
 k is a consonant.
 
 '''
-vowels='aeiouAEIOU'
-s=input("enter a letter")
+vowels = 'aeiouAEIOU'
+s = input("enter a letter")
 if s.isalpha():
-    if vowels.find(s) >=0:
-        print(s,' is a Vowel')
+    if vowels.find(s) >= 0:
+        print(s, ' is a Vowel')
     else:
-        print(s,'is a consonent')
+        print(s, 'is a consonent')
 else:
     print("It is not a alphabet")

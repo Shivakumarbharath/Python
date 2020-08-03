@@ -5,7 +5,7 @@ also create a lambda function that multiplies argument x with argument y and pri
 
 '''
 
-r=lambda x:x+10
+r = lambda x: x + 10
 print(r(10))
-a=lambda x,y:x*y
-print(a(2,5))
+a = lambda x, y: x * y
+print(a(2, 5))

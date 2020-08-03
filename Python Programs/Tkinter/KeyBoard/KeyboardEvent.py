@@ -1,10 +1,11 @@
 from tkinter import *
 
-root=Tk()
+root = Tk()
 
 
 def myClick(event):
-    label=Label(root,text="Clicked the Button at x={} y= {} and key ={}".format(str(event.x),str(event.y),event.keysym))
+    label = Label(root,
+                  text="Clicked the Button at x={} y= {} and key ={}".format(str(event.x), str(event.y), event.keysym))
     label.pack()
 
     '''
@@ -17,8 +18,8 @@ def myClick(event):
     '''
 
 
-myButton=Button(root,text="click mee!")#,command=myClick,bg='blue')#creating a button
-#myButton.bind(event,action)
+myButton = Button(root, text="click mee!")  # ,command=myClick,bg='blue')#creating a button
+# myButton.bind(event,action)
 '''
 <Button-1> mouse normal click(event.x and y used for mouse )
 <Button-2> mouse middle click
@@ -33,10 +34,7 @@ more event formats at
 https://effbot.org/tkinterbook/tkinter-events-and-bindings.htm
 '''
 
-
-
-myButton.bind("<Key>",myClick)
+myButton.bind("<Key>", myClick)
 myButton.pack()
-
 
 root.mainloop()

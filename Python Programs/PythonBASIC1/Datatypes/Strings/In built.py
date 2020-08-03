@@ -1,54 +1,54 @@
-#'' or"" -single line
-#'''''' or"""""" - multiple line
-name='Bharathz'
-name2='BHARGAV'
-#find
-indexnumber=str.find(name,'a')
+# '' or"" -single line
+# '''''' or"""""" - multiple line
+name = 'Bharathz'
+name2 = 'BHARGAV'
+# find
+indexnumber = str.find(name, 'a')
 print(indexnumber)
 
-#upper
+# upper
 print(name.upper())
 
-#lower
+# lower
 print(str.lower(name2))
 
-#check
-check=str.isupper(name)
+# check
+check = str.isupper(name)
 print(check)
 
 # using str does not change the main value
 
-#captalise only the first letter
-name3='fruit'
+# captalise only the first letter
+name3 = 'fruit'
 print(str.capitalize(name3))
 
 # Slicing [start:end+1]
 print(name[2:6])
 
-#reverse
+# reverse
 print(name[::-1])
 
 # Indexing
-print(name[-1]+name[1])
+print(name[-1] + name[1])
 
-#Replace
-print(name.replace('th','t'))
+# Replace
+print(name.replace('th', 't'))
 
 # Split(replace(this)replace)
-name4='B,H,a,r,a,t,h'
+name4 = 'B,H,a,r,a,t,h'
 print(name4.split('a'))
 
-#count
+# count
 print(name.count('a'))
 
-#max ascii value
+# max ascii value
 print(max(name))
 
-#mix ascii value
+# mix ascii value
 print(min(name))
 
-#isalpha
+# isalpha
 print(name.isalpha())
 
-#Appending
-print( name+name2)
+# Appending
+print(name + name2)

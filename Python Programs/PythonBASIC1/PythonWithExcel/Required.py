@@ -3,8 +3,8 @@ type1 = input("type?")
 link = input('link?')
 price = int(input("MRP"))
 y = title.split(' ')
-st=title.split(" Star ")
-stars=st[0][-1]
+st = title.split(" Star ")
+stars = st[0][-1]
 brand = y[0]
 liters = int(y[1])
 m = title.split(' (')
@@ -17,7 +17,3 @@ print(attributes)
 print(model)
 send = [title, attributes, link, price, model, brand]
 column = ["A", "B", "C", "D", "E", 'F']
-
-
-
-

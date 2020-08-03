@@ -121,48 +121,12 @@ In this case, we run the line and we see the green plot.
 '''
 import numpy as np
 import matplotlib.pyplot as plt
-x=np.linspace(0,20,21)
-y=x**2
 
-print(x,y)
-p=plt.plot(x,y)
+x = np.linspace(0, 20, 21)
+y = x ** 2
 
-#print(p)
+print(x, y)
+p = plt.plot(x, y)
+
+# print(p)
 plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

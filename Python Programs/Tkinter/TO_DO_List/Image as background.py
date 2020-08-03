@@ -1,7 +1,6 @@
 from tkinter import *
 from PIL import Image, ImageTk
 
-
 from tkinter import colorchooser
 
 IMAGE_PATH = 'background.jpg'
@@ -19,7 +18,6 @@ bg = canvas.create_image(0, 0, anchor=NW, image=img)
 
 
 def colour():
-
     colour = colorchooser.askcolor()
     bg = colour[1]
     cBtn.config(bg=bg)
@@ -28,14 +26,13 @@ def colour():
     print(colour[1])
 
 
-
 # Put a tkinter widget on the canvas.
-button = Button(root, text="Start",relief=GROOVE)
-cBtn=Button(root,text="Colour",command=colour,relief=GROOVE)
+button = Button(root, text="Start", relief=GROOVE)
+cBtn = Button(root, text="Colour", command=colour, relief=GROOVE)
 button_window = canvas.create_window(150, 200, anchor=NW, window=button)
-cBtn_window=canvas.create_window(200,200,anchor=NW, window=cBtn)
+cBtn_window = canvas.create_window(200, 200, anchor=NW, window=cBtn)
 
-lab=Label(root,text='the colour')
-lab_wind=canvas.create_window(10,200,anchor=NW,window=lab)
+lab = Label(root, text='the colour')
+lab_wind = canvas.create_window(10, 200, anchor=NW, window=lab)
 
 root.mainloop()

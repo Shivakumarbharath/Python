@@ -57,6 +57,7 @@ So we found the appropriate line.
 
 '''
 
+
 def read_book(file_path):
     """
 
@@ -64,7 +65,7 @@ def read_book(file_path):
     :param file_path:
     :return string:
     """
-    with open(file_path,'r',encoding="utf-8") as book:
-        text=book.read()
-        text=text.replace('\n','').replace('\r','')
+    with open(file_path, 'r', encoding="utf-8") as book:
+        text = book.read()
+        text = text.replace('\n', '').replace('\r', '')
     return text

@@ -6,16 +6,16 @@ which is to be balanced
 
 
 '''
-d={'[':']','{':'}','(':')'}
-k='(){}[(][{)}]'
-k=list(k)
-e=0
-while len(k)>0:
+d = {'[': ']', '{': '}', '(': ')'}
+k = '(){}[(][{)}]'
+k = list(k)
+e = 0
+while len(k) > 0:
     print(k[e])
-    a=k.index(k[e])
+    a = k.index(k[e])
     b = k.index(d[k[e]])
     try:
-        if (b-a)%2==0:
+        if (b - a) % 2 == 0:
             print(False)
             exit()
         else:

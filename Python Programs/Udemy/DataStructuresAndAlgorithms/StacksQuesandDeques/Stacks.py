@@ -19,14 +19,15 @@ it takes nothing and returns the item
 6.size()-returns the number of items in the stack
 '''
 
+
 class Stack:
     def __init__(self):
-        self.items=[]
+        self.items = []
 
     def isEmpty(self):
-        return self.items==[]
+        return self.items == []
 
-    def push(self,item):
+    def push(self, item):
         self.items.append(item)
 
     def pop(self):
@@ -40,8 +41,3 @@ class Stack:
 
     def __str__(self):
         return str(self.items)
-
-
-
-
-

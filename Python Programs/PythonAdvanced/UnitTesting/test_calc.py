@@ -43,7 +43,7 @@ class Calc(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-#Mocking
+# Mocking
 '''
 if there is problem in the web and the code is very much fine then this 
 but as using the assert depends on the success of the website

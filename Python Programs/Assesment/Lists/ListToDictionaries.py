@@ -8,9 +8,8 @@ Expected Output: [{'color_name': 'Black', 'color_code': '#000000'}, {'color_name
 
 '''
 
-colour=["Black", "Red", "Maroon", "Yellow"]
-code=["#000000", "#FF0000", "#800000", "#FFFF00"]
+colour = ["Black", "Red", "Maroon", "Yellow"]
+code = ["#000000", "#FF0000", "#800000", "#FFFF00"]
 
-
-combine=[{'Colour_name':a,'colour_code':b} for a,b in zip(colour,code)]
+combine = [{'Colour_name': a, 'colour_code': b} for a, b in zip(colour, code)]
 print(combine)

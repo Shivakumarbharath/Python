@@ -1,4 +1,5 @@
 from tkinter import *
+
 '''
 Create a button widget
 
@@ -7,14 +8,14 @@ Every widget must be created and then put into the window
 
 
 def myClick():
-    label=Label(root,text="Clicked the Button")
+    label = Label(root, text="Clicked the Button")
     label.pack()
 
 
-root=Tk()
+root = Tk()
 
-myButton=Button(root,text="click mee!",command=myClick,bg='blue')#creating a button
-#putting into the window
+myButton = Button(root, text="click mee!", command=myClick, bg='blue')  # creating a button
+# putting into the window
 myButton.pack()
 
 '''
@@ -45,7 +46,5 @@ bg='blue' - to change the button colour
 
 
 '''
-
-
 
 root.mainloop()

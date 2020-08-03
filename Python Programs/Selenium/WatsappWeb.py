@@ -1,33 +1,27 @@
 from selenium import webdriver
 
-
-driver=webdriver.Chrome(executable_path='C:\Webdrivers\chromedriver')
+driver = webdriver.Chrome(executable_path='C:\Webdrivers\chromedriver')
 
 driver.get('https://web.whatsapp.com/')
 
-name=input('Enter the name of user')
+name = input('Enter the name of user')
 
-ms=input("Enter your message")
-count=int(input('How many times'))
+ms = input("Enter your message")
+count = int(input('How many times'))
 
 input('Enter any key after scan the qr code')
 
-user=driver.find_element_by_xpath('//span[@title="{}"]'.format(name))
+user = driver.find_element_by_xpath('//span[@title="{}"]'.format(name))
 user.click()
 
-
-msg_box=driver.find_element_by_class_name('_1Plpp')
-
-
+msg_box = driver.find_element_by_class_name('_1Plpp')
 
 for i in range(count):
     msg_box.send_keys(ms)
-    button=driver.find_element_by_class_name('_35EW6')
+    button = driver.find_element_by_class_name('_35EW6')
     button.click()
 
-
 print("workdone")
-
 
 '''
 

@@ -12,15 +12,14 @@ $ "       "                      "               end  """
 
 '''
 
-
 import re
 
-st="1  One by One 2 I will achieve 3 success  Ohg Okk Off On Of Ok"
+st = "1  One by One 2 I will achieve 3 success  Ohg Okk Off On Of Ok"
 
-result=re.search(r'$ O\w',st)# now it searchs for a patterno\w\w and replace with two
+result = re.search(r'$ O\w', st)  # now it searchs for a patterno\w\w and replace with two
 
 print(result)
 
-result=re.search(r'O\w\w',st)# now it searchs for a patterno\w\w and replace with two
+result = re.search(r'O\w\w', st)  # now it searchs for a patterno\w\w and replace with two
 
 print(result)

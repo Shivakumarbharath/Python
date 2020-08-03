@@ -25,21 +25,19 @@ Algorithm
 
 '''
 
+units = int(input('Enter the number of inputs'))
 
-units=int(input('Enter the number of inputs'))
+sum = 0
 
-sum=0
+if units <= 100:
+    sum = 10 * units
 
-if units<=100:
-    sum=10*units
+elif 100 < units <= 200:
+    sum = 10 * 100 + (units - 100) * 15
 
-elif 100<units<=200:
-    sum=10*100+(units-100)*15
-
-elif 200<units<=300:
-    sum = 10 * 100 + 100 * 15+(units-200)*20
+elif 200 < units <= 300:
+    sum = 10 * 100 + 100 * 15 + (units - 200) * 20
 else:
-    sum = 10 * 100 + 100 * 15 + 100*20+(units - 300) * 25
-
+    sum = 10 * 100 + 100 * 15 + 100 * 20 + (units - 300) * 25
 
 print(sum)

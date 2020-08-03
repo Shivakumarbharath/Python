@@ -1,9 +1,12 @@
 class PasswordExceptionError(Exception):
     pass
+
+
 class PasswordMatchingError(Exception):
     pass
 
-pw=input("Enter Your Password : ")
+
+pw = input("Enter Your Password : ")
 try:
     if len(pw) < 8:
         raise PasswordExceptionError
@@ -15,7 +18,7 @@ except PasswordExceptionError:
 else:
     print("Password Created")
 
-    pw1=input("Renter Your password : ")
+    pw1 = input("Renter Your password : ")
     try:
         if pw1 != pw:
             raise PasswordMatchingError

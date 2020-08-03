@@ -63,14 +63,14 @@ than the Python-based implementation.
 import time
 import matplotlib.pyplot as plt
 import numpy as np
-start_time=time.time()
-#code
-x=np.random.randint(1,7,(100,10))
 
-y=np.sum(x,axis=1)
+start_time = time.time()
+# code
+x = np.random.randint(1, 7, (100, 10))
+
+y = np.sum(x, axis=1)
 plt.hist(y)
 plt.show()
 
-
-end_time=time.time()
-print(end_time-start_time)
+end_time = time.time()
+print(end_time - start_time)

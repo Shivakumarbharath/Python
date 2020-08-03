@@ -5,6 +5,7 @@ class Rectangle:
         self.width = width
         self.color = color
 
+
 my_rectangle = Rectangle(5, 4, "Blue")
 
 print(my_rectangle.length)

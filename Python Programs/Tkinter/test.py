@@ -1,11 +1,14 @@
 import tkinter as tk
 
 i = 0
+
+
 def text_mod():
-    global i, btn           # btn can be omitted but not sure if should be
+    global i, btn  # btn can be omitted but not sure if should be
     txt = ("Vicariously", "I", "live", "as", "the", "whole", "world", "dies")
-    btn['text'] = txt[i]    # the global object that is modified
+    btn['text'] = txt[i]  # the global object that is modified
     i = (i + 1) % len(txt)  # another global object that gets modified
+
 
 root = tk.Tk()
 

@@ -59,8 +59,8 @@ print(df.iloc[[0, 1]])
 # iloc can be used to access only specific columns
 # but it should be in integer format of columns
 
-print(df.iloc[[0,1],1])#to get salary column
+print(df.iloc[[0, 1], 1])  # to get salary column
 
 # Same using loc names can be used
 
-print(df.loc[[0,1],['Salary','Net Worth']])
+print(df.loc[[0, 1], ['Salary', 'Net Worth']])

@@ -8,9 +8,9 @@ import urllib.request
 
 try:
 
-    url=urllib.request.urlopen("https://www.python.org/")#the method that takes the url
+    url = urllib.request.urlopen("https://www.python.org/")  # the method that takes the url
 
-    content=url.read()
+    content = url.read()
 
     url.close()
     f = open("python.html", "wb")
@@ -19,4 +19,3 @@ try:
 
 except urllib.error.HTTPError:
     print("URL not found")
-

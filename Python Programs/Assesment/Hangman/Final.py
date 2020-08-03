@@ -2,65 +2,87 @@ from tkinter import *
 import random
 from tkinter import messagebox
 
-sports=('arena', 'athletic', 'backboard', 'backhand', 'batter (baseball)', 'baseball',
-        'basketball', 'bench', 'catcher', 'champion', 'championship', 'coach', 'competitive',
-        'defense', 'doubles', 'dribble', 'dugout', 'fan',
-        'field goal', 'finish line', 'football', 'forehand', 'goalkeeper', 'goalpost')
-air_Travel=('aisle', 'arrival', 'baggage', 'board', 'bulkhead', 'carry-on', 'coach', 'cockpit', 'connection', 'crew', 'customs', 'declare',
-            'departure', 'duty-free',
-             'gate', 'itinerary', 'jet engine', 'jet lag', 'jumbo jet', 'landing', 'lavatory', 'luggage', 'one-way', 'overbook', 'oxygen mask')
-environment=('aquifer', 'atmosphere', 'biodegradable', 'biodiversity', 'carbon dioxide', 'carbon monoxide',
-             'carcinogen', 'climate', 'coal', 'compost (noun)', 'compost (verb)', 'conservation', 'conservationist',
-             'contaminant', 'contamination', 'deforestation', 'disposable', 'diversity', 'ecology', 'ecosystem', 'emission',
-             'endangered', 'energy', 'environment', 'environmentalist', 'erosion', 'extinct', 'extinction', 'fossil fuel', 'geothermal')
+sports = ('arena', 'athletic', 'backboard', 'backhand', 'batter (baseball)', 'baseball',
+          'basketball', 'bench', 'catcher', 'champion', 'championship', 'coach', 'competitive',
+          'defense', 'doubles', 'dribble', 'dugout', 'fan',
+          'field goal', 'finish line', 'football', 'forehand', 'goalkeeper', 'goalpost')
+air_Travel = (
+'aisle', 'arrival', 'baggage', 'board', 'bulkhead', 'carry-on', 'coach', 'cockpit', 'connection', 'crew', 'customs',
+'declare',
+'departure', 'duty-free',
+'gate', 'itinerary', 'jet engine', 'jet lag', 'jumbo jet', 'landing', 'lavatory', 'luggage', 'one-way', 'overbook',
+'oxygen mask')
+environment = ('aquifer', 'atmosphere', 'biodegradable', 'biodiversity', 'carbon dioxide', 'carbon monoxide',
+               'carcinogen', 'climate', 'coal', 'compost (noun)', 'compost (verb)', 'conservation', 'conservationist',
+               'contaminant', 'contamination', 'deforestation', 'disposable', 'diversity', 'ecology', 'ecosystem',
+               'emission',
+               'endangered', 'energy', 'environment', 'environmentalist', 'erosion', 'extinct', 'extinction',
+               'fossil fuel', 'geothermal')
 
-family=('mother', 'mom', 'father', 'dad', 'parent', 'children', 'son', 'daughter', 'sister', 'brother',
-        'grandmother', 'grandfather', 'grandparent', 'grandson', 'granddaughter', 'grandchild', 'aunt',
-        'uncle', 'niece', 'nephew', 'cousin', 'husband', 'wife', 'sister-in-law', 'brother-in-law', 'mother-in-law', 'father-in-law', 'partner')
-jobs_professions=('accountant', 'actor', 'actress', 'architect', 'artist', 'attorney', 'banker', 'bartender',
-                  'barber', 'bookkeeper', 'builder', 'businessman', 'businesswoman',
-                  'businessperson', 'butcher', 'carpenter', 'cashier', 'chef', 'coach',
-                  'dentist', 'designer', 'developer', 'dietician', 'doctor', 'economist',
-                  'editor', 'electrician', 'engineer')
+family = ('mother', 'mom', 'father', 'dad', 'parent', 'children', 'son', 'daughter', 'sister', 'brother',
+          'grandmother', 'grandfather', 'grandparent', 'grandson', 'granddaughter', 'grandchild', 'aunt',
+          'uncle', 'niece', 'nephew', 'cousin', 'husband', 'wife', 'sister-in-law', 'brother-in-law', 'mother-in-law',
+          'father-in-law', 'partner')
+jobs_professions = ('accountant', 'actor', 'actress', 'architect', 'artist', 'attorney', 'banker', 'bartender',
+                    'barber', 'bookkeeper', 'builder', 'businessman', 'businesswoman',
+                    'businessperson', 'butcher', 'carpenter', 'cashier', 'chef', 'coach',
+                    'dentist', 'designer', 'developer', 'dietician', 'doctor', 'economist',
+                    'editor', 'electrician', 'engineer')
 
-law=('arrest', 'accuse', 'acquit', 'adjourn', 'adoption', 'alibi', 'alimony', 'appeal', 'appeal', 'attorney', 'bankrupt', 'bribe',
-     'brief', 'case', 'common-law', 'contract', 'copyright' 'court', 'criminal (adjective)', 'custody', 'damages', 'death sentence', 'defend')
+law = (
+'arrest', 'accuse', 'acquit', 'adjourn', 'adoption', 'alibi', 'alimony', 'appeal', 'appeal', 'attorney', 'bankrupt',
+'bribe',
+'brief', 'case', 'common-law', 'contract', 'copyright' 'court', 'criminal (adjective)', 'custody', 'damages',
+'death sentence', 'defend')
 
-emotions=('acceptance', 'admiration', 'affection', 'aggravation', 'anger', 'anguish', 'anxiety', 'attraction', 'boredom', 'caution',
-          'certainty', 'compassion', 'confidence', 'confusion', 'contentment', 'courage', 'curiosity', 'defeat', 'defiance', 'delight',
-          'dependence', 'depression', 'desire', 'disappointment', 'dislike', 'dismay', 'distress', 'embarrassment', 'enthusiasm', 'envy')
+emotions = (
+'acceptance', 'admiration', 'affection', 'aggravation', 'anger', 'anguish', 'anxiety', 'attraction', 'boredom',
+'caution',
+'certainty', 'compassion', 'confidence', 'confusion', 'contentment', 'courage', 'curiosity', 'defeat', 'defiance',
+'delight',
+'dependence', 'depression', 'desire', 'disappointment', 'dislike', 'dismay', 'distress', 'embarrassment', 'enthusiasm',
+'envy')
 
-body_parts=('ankle', 'arch', 'arm', 'armpit', 'beard', 'breast', 'calf', 'cheek', 'chest', 'chin', 'earlobe', 'elbow', 'eyebrow',
-            'eyelash', 'eyelid', 'face', 'finger', 'forearm', 'forehead', 'gum', 'heel', 'hip', 'index finger', 'jaw', 'knee', 'knuckle',
-         'leg', 'lip', 'mouth', 'mustache')
+body_parts = (
+'ankle', 'arch', 'arm', 'armpit', 'beard', 'breast', 'calf', 'cheek', 'chest', 'chin', 'earlobe', 'elbow', 'eyebrow',
+'eyelash', 'eyelid', 'face', 'finger', 'forearm', 'forehead', 'gum', 'heel', 'hip', 'index finger', 'jaw', 'knee',
+'knuckle',
+'leg', 'lip', 'mouth', 'mustache')
 
-non_count_nouns=('advice', 'agriculture', 'air', 'anger', 'attention', 'chaos', 'clothing', 'courage', 'dirt', 'equipment', 'fun', 'furniture',
-                 'garbage', 'homework', 'housework', 'information', 'jewelry', 'luck', 'luggage', 'mail', 'news', 'patience', 'permission',
-                 'pollution', 'progress', 'research', 'scenery', 'slang', 'smoke', 'soccer')
+non_count_nouns = (
+'advice', 'agriculture', 'air', 'anger', 'attention', 'chaos', 'clothing', 'courage', 'dirt', 'equipment', 'fun',
+'furniture',
+'garbage', 'homework', 'housework', 'information', 'jewelry', 'luck', 'luggage', 'mail', 'news', 'patience',
+'permission',
+'pollution', 'progress', 'research', 'scenery', 'slang', 'smoke', 'soccer')
 
-health=('ache', 'allergy', 'antihistamine', 'appetite', 'aspirin', 'bandage', 'bandage', 'blood', 'bone', 'broken', 'bronchitis',
-        'bruise', 'bruise', 'cast', 'clinic', 'cold', 'contagious', 'cough', 'crutch', 'cut', 'decongestant', 'diarrhea', 'dizzy',
-        'fever', 'first aid', 'flu', 'headache', 'hives', 'indigestion', 'infection')
+health = ('ache', 'allergy', 'antihistamine', 'appetite', 'aspirin', 'bandage', 'bandage', 'blood', 'bone', 'broken',
+          'bronchitis',
+          'bruise', 'bruise', 'cast', 'clinic', 'cold', 'contagious', 'cough', 'crutch', 'cut', 'decongestant',
+          'diarrhea', 'dizzy',
+          'fever', 'first aid', 'flu', 'headache', 'hives', 'indigestion', 'infection')
 
-college=('campus', 'community college', 'course', 'credit', 'degree', 'dorm', 'enroll', 'exam', 'faculty', 'fail', 'financial aid',
-         'fraternity', 'gpa', 'graduate', 'graduate', 'instructor', 'lecture', 'major', "master's degree", 'matriculate', 'notebook', 'notes',
-         'pass', 'phd', 'postgraduate', 'prerequisite', 'professor', 'quiz','goa')
+college = ('campus', 'community college', 'course', 'credit', 'degree', 'dorm', 'enroll', 'exam', 'faculty', 'fail',
+           'financial aid',
+           'fraternity', 'gpa', 'graduate', 'graduate', 'instructor', 'lecture', 'major', "master's degree",
+           'matriculate', 'notebook', 'notes',
+           'pass', 'phd', 'postgraduate', 'prerequisite', 'professor', 'quiz', 'goa')
 
+Catagory = [sports, air_Travel, environment, family, jobs_professions, law, emotions, body_parts, non_count_nouns,
+            health, college]
 
-Catagory=[sports,air_Travel,environment,family,jobs_professions,law,emotions,body_parts,non_count_nouns,health,college]
-
-Catagory_text={sports:'Sports',air_Travel:"Air Travel",environment:"Environment",family:"Family",
-               jobs_professions:"Jobs or Professions",law:"Law",emotions:"Emotions",body_parts:"Body Parts",non_count_nouns:"Non-Count-Nouns",
-               health:"Health",college:"College Life"}
-
+Catagory_text = {sports: 'Sports', air_Travel: "Air Travel", environment: "Environment", family: "Family",
+                 jobs_professions: "Jobs or Professions", law: "Law", emotions: "Emotions", body_parts: "Body Parts",
+                 non_count_nouns: "Non-Count-Nouns",
+                 health: "Health", college: "College Life"}
 
 
 def get_word():
-    global catagory,disp
-    cat=random.choice(Catagory)
+    global catagory, disp
+    cat = random.choice(Catagory)
     word = random.choice(cat)
-    catagory=Catagory_text[cat]
-    #print(catagory,'13')
+    catagory = Catagory_text[cat]
+    # print(catagory,'13')
     disp = ['_' for k in range(len(word))]
     return word
 
@@ -90,7 +112,7 @@ def repeat(char, word, disp):
 # Execute
 
 def openwindow():
-    global root, head, word, disp, entryE, entryL, chk, chances, chan, pla, qbtn,catagory
+    global root, head, word, disp, entryE, entryL, chk, chances, chan, pla, qbtn, catagory
     root = Tk()
 
     root.title("Play HANGMAN")
@@ -99,10 +121,8 @@ def openwindow():
     root.geometry("400x400")
     head = Label(root, text="HANGMAN", relief='solid', padx=5, pady=5, font=('Times', 15, 'bold italic underline'))
     head.place(x=150, y=10)
-    #word = get_word()
-    #disp = ['_' for k in range(len(word))]
-
-
+    # word = get_word()
+    # disp = ['_' for k in range(len(word))]
 
     entryL = Label(root, text="Guess the Letter: ", padx=5, pady=5, fg='green', font=("ariel", 12, 'italic'))
     entryL.place(x=27, y=298)
@@ -122,7 +142,6 @@ def openwindow():
     qbtn.place(x=300, y=350)
 
 
-
 '''
 winL = Label(root, text="", padx=5, pady=5, fg='yellow', font=('ariel', 14, 'bold'))
 winL.place(relx=51, rely=10)
@@ -132,22 +151,22 @@ winL3 = Label(root, text="", padx=5, pady=5, fg='blue', font=('ariel', 10, 'bold
 winL3.place(relx=.5, rely=.54, anchor=CENTER)
 '''
 
+
 def play(word):
     global chances
     global winL2
     global winL
     global winL3
     global dispL
-    hintLabel = Label(root, text="Hint : {}".format(catagory),bg='orange')
+    hintLabel = Label(root, text="Hint : {}".format(catagory), bg='orange')
     hintLabel.place(x=50, y=55)
 
     pla = Button(root, text="Play Again", state='disabled')
     pla.place(x=160, y=350)
-    #print(word)
+    # print(word)
     disp = ['_' for k in range(len(word))]
     dispL = Label(root, text=' ')
     dispL.place(relx=.1, rely=.1)
-
 
     dispL = Label(root, text=dispTostr(disp), padx=5, pady=5, font=('ariel', 12, 'bold'))
     dispL.place(relx=.5, rely=.25, anchor=CENTER)
@@ -281,8 +300,8 @@ def playagain():
 
 
 openwindow()
-word=get_word()
-#print(word,'232')
+word = get_word()
+# print(word,'232')
 play(word)
 
 #
@@ -295,5 +314,3 @@ play(word)
 
 
 root.mainloop()
-
-

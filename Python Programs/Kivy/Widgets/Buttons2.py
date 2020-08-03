@@ -10,7 +10,8 @@ class Buttons2App(App):
     def build(self):
         return buttonpy()
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     Buttons2App().run()
 
 '''

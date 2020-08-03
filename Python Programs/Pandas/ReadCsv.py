@@ -32,7 +32,6 @@ print(df.info(), 21)
 # here the object datatype usually mean strings
 
 
-
-pd.set_option('display.max_rows',60)
-schema_df=pd.read_csv('Data/survey_results_schema.csv')
+pd.set_option('display.max_rows', 60)
+schema_df = pd.read_csv('Data/survey_results_schema.csv')
 print(schema_df)
