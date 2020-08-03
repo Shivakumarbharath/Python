@@ -1,0 +1,295 @@
+<Manager>:
+    Main:
+        id:login
+        name:'login'
+    Edit:
+        id:Edit
+        name:'Edit'
+    View:
+        id:v
+        name:'view'
+    View2:
+        id:v2
+        name:'view2'
+
+<Main>
+    name:'login'
+    first_name:first_name
+    last_name:last_name
+    email:email
+    contact:contact
+    sts:sts
+
+
+    GridLayout:
+        rows:4
+
+
+        FloatLayout:
+            size_hint:[1,0.2]
+
+
+            Widget:
+                pos_hint: {'center_x': 0.5,'top': 1}
+                size_hint: 0.2,1
+
+
+                canvas:
+                    Color:
+                        rgb: 1,1,1
+                    Ellipse:
+                        size:self.size
+                        pos:self.pos
+                        source:'loginpage.png'
+
+
+
+
+
+        GridLayout:
+            size_hint:[0.8,0.5]
+
+            cols:2
+            padding:[15,25,15,25]
+
+
+
+
+            Label:
+                color:1,0,0.5,1
+                background_color: 1, 0, 0, 1
+                text:'First Name:'
+
+
+            TextInput:
+                id:first_name
+                multiline:False
+
+            Label:
+                text:'Last Name:'
+
+            TextInput:
+                id:last_name
+                multiline:False
+
+
+
+            Label:
+                text:'Email:'
+
+
+            TextInput:
+                id:email
+                multiline:False
+
+            Label:
+                text:'Contact:'
+
+            TextInput:
+                id:contact
+                multiline:False
+
+
+
+
+
+
+
+        BoxLayout:
+            orientation:'horizontal'
+            padding:[40,5,40,5]# [padding_left, padding_top, padding_right, padding_bottom].
+            size_hint:[0,.15]
+
+            Button:
+                text:'View'
+                background_color:0.5,0.5,0.5,1
+                on_press:root.view()
+
+
+
+
+
+            Button:
+                text:'Edit'
+                background_color:0.5,0.5,0.5,1
+                on_press:root.EditPop()
+
+
+
+            Button:
+
+                text:'Create'
+                on_press:root.getValues()
+
+
+
+
+
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint:[0,0.1]
+            Label:
+                id:sts
+                text:'Status Bar'
+
+
+
+
+<Edit>:
+    name:'Edit'
+    fn:fn
+    ln:ln
+    em:em
+    con:con
+    GridLayout:
+        rows:3
+
+
+
+        FloatLayout:
+            size_hint:[1,0.2]
+
+
+            Widget:
+                pos_hint: {'center_x': 0.5,'top': 1}
+                size_hint: 0.2,1
+
+
+                canvas:
+                    Color:
+                        rgb: 1,1,1
+                    Ellipse:
+                        size:self.size
+                        pos:self.pos
+                        source:'loginpage.png'
+
+
+
+
+        GridLayout:
+            size_hint:[0.8,0.5]
+
+            cols:2
+            padding:[15,25,15,25]
+
+
+
+
+            Label:
+                color:1,0,0.5,1
+                background_color: 1, 0, 0, 1
+                text:'First Name:'
+
+
+            TextInput:
+                id:fn
+                multiline:False
+
+
+            Label:
+                text:'Last Name:'
+
+            TextInput:
+                id:ln
+                multiline:False
+
+
+
+
+            Label:
+                text:'Email:'
+
+
+            TextInput:
+                id:em
+                multiline:False
+
+
+            Label:
+                text:'Contact:'
+
+            TextInput:
+                id:con
+                multiline:False
+
+
+
+
+
+
+        FloatLayout:
+
+            padding:[40,5,40,5]# [padding_left, padding_top, padding_right, padding_bottom].
+            size_hint:[1,.15]
+
+
+
+
+
+
+            Button:
+                text:'Save'
+
+                size_hint:[None,.4]
+                pos_hint:{'right':0.6,'y':0.3}
+                width:300
+
+
+                background_color:0.5,0.5,0.5,1
+                on_press:root.Save()
+
+
+
+
+
+
+<View>:
+    name:'view'
+    id:v
+
+<View2>:
+    name:'view2'
+    fname_view:fname_view
+    lname_view:lname_view
+    email_view:email_view
+    contact_view:contact_view
+    GridLayout:
+        rows:2
+        GridLayout:
+            cols:2
+            padding:25
+
+            Label:
+                text:'First Name'
+
+            Label:
+                id:fname_view
+
+
+
+            Label:
+                text:'Last Name'
+
+            Label:
+                id:lname_view
+
+
+
+            Label:
+                text:'Email'
+
+            Label:
+                id:email_view
+
+
+            Label:
+                text:'Contact'
+
+            Label:
+                id:contact_view
+
+
+        Button:
+            text:'Back'
+            size_hint:[0,0.2]
+            on_press:app.root.current='login'
