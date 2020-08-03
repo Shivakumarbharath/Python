@@ -35,7 +35,7 @@ except ZeroDivisionError:# When the error is zero division this block gets execu
     print("Division by zero not allowed")
 
 else:# this is used after try and except to execute when no error is raised
-    print("You have enntered a non zero number")
+    print("You have entered a non zero number")
 
 finally:# whatever may be the execution above but this gets executed after the above execution
     f.close()

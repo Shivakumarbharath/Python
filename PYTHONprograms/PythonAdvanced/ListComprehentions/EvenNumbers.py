@@ -5,3 +5,4 @@ print(lst)
 lst=[]
 lst=[x for x in range(0,21,2)]
 print(lst)
+

@@ -94,3 +94,11 @@ final=[[row*column for column in range(Columns)] for row in range(Rows)]
 #         final[row].append(row*column)
 
 print(final)
+
+for i in range(1, 5):
+    for k in range(1,i):
+        print(k, end='')
+    print()
+k=[[j for j in range(1,i)] for i in range(2,5)]
+
+print(k)

@@ -108,9 +108,6 @@ class Edit(Screen):
         sm.current='login'
 
 
-
-
-
 class View(Screen):
 
     def on_pre_enter(self, *args):

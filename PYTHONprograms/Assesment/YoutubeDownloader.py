@@ -31,8 +31,8 @@ name=input('Name Of the file? : ')
 try:
     yt=YouTube(url)
 except:
-    print('Couldnt connect')
-    exit()
+       print('Couldnt connect')
+       exit()
 
 if type1==2:
     stream=yt.streams.filter(mime_type=mime_type).first()

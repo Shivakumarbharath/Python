@@ -7,4 +7,3 @@ f=open(r'pkling.pkl','rb')
 e=pickle.load(f)
 print(e)
 
-help()
