@@ -6,7 +6,7 @@ write program
 
 
 '''
-#my solution
-n=int(input("Enter the number of table ? : "))
-for i in range(1,16):
-    print("{} x {} = {}".format(n,i,n*i))
+# my solution
+n = int(input("Enter the number of table ? : "))
+for i in range(1, 16):
+    print("{} x {} = {}".format(n, i, n * i))

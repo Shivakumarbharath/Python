@@ -7,7 +7,8 @@ import random
 
 Window.clearcolor = (1, 1, 1, 0)  # rgba format to change the colour of the window
 
-#Root Window=Paint Window +Button
+
+# Root Window=Paint Window +Button
 class PaintWindow(Widget):
     def on_touch_down(self, touch):
         # to make colour random
@@ -41,15 +42,15 @@ class PaintWindow(Widget):
 
 class PaintApp(App):
     def build(self):
-        #create a window
-        rootWindow=Widget()
-        self.paint=PaintWindow()
-        btn=Button(text="Clear",on_press =self.clear)
+        # create a window
+        rootWindow = Widget()
+        self.paint = PaintWindow()
+        btn = Button(text="Clear", on_press=self.clear)
         rootWindow.add_widget(btn)
         rootWindow.add_widget(self.paint)
         return rootWindow
 
-    def clear(self,obj):
+    def clear(self, obj):
         self.paint.canvas.clear()
 
 

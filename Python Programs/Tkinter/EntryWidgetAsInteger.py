@@ -1,28 +1,30 @@
 from tkinter import *
-from PIL import Image,ImageTk
+from PIL import Image, ImageTk
+
 
 def Check():
     try:
-        k=int(enter.get())
-        answer.config(text=str(k)+' is a number')
+        k = int(enter.get())
+        answer.config(text=str(k) + ' is a number')
     except ValueError:
-        tst=enter.get()
-        enter.delete(0,END)
+        tst = enter.get()
+        enter.delete(0, END)
         answer.config(text="{} is not a Number".format(tst))
 
-root =Tk()
+
+root = Tk()
 root.geometry('300x300')
 
-label=Label(root,text="Enter a number : ")
+label = Label(root, text="Enter a number : ")
 label.pack()
 
-enter=Entry(root)#,show='*')
+enter = Entry(root)  # ,show='*')
 enter.pack()
 
-btn=Button(root,text="check",command=Check)
+btn = Button(root, text="check", command=Check)
 btn.pack()
 
-answer=Label(root,text='')
+answer = Label(root, text='')
 answer.pack()
 
 root.mainloop()

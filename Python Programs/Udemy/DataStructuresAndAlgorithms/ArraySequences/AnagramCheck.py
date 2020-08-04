@@ -18,21 +18,20 @@ Algorithm 2
 
 '''
 
+st1 = 'public relations'
+st2 = 'crap built on lies'
 
-st1='public relations'
-st2='crap built on lies'
 
-def anagram(st1,st2):
+def anagram(st1, st2):
+    # 1.Replace spaces with null in both the strings
+    changed_st1 = st1.replace(' ', '').lower()
+    changed_st2 = st2.replace(' ', '').lower()
 
-    #1.Replace spaces with null in both the strings
-    changed_st1=st1.replace(' ','').lower()
-    changed_st2=st2.replace(' ','').lower()
-
-    #2.Check the length of both the strings
-    if len(changed_st1)!=len(changed_st2):
+    # 2.Check the length of both the strings
+    if len(changed_st1) != len(changed_st2):
         return False
 
-    #3.check every letter in string 2 is presrnt in string 1
+    # 3.check every letter in string 2 is presrnt in string 1
     for e in changed_st2:
         if e in changed_st1:
             continue
@@ -41,10 +40,5 @@ def anagram(st1,st2):
 
     return True
 
-print(anagram(st1,st2))
 
-
-
-
-
-
+print(anagram(st1, st2))

@@ -36,11 +36,13 @@ for i,e in enumerate(lst):
 
 
 '''
-#Alternative
-lst=input("Enter").split(' ')
+# Alternative
+lst = input("Enter").split(' ')
+
+
 def unique(lst):
     print(lst.count('5'))
     return min(lst, key=lst.count)
 
-print(unique(lst))
 
+print(unique(lst))

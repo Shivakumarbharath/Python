@@ -7,7 +7,6 @@ class Bank:
         self.pin = int(input('Please Enter Your 4 Digit Pin:'))
         self.bal = self.min
 
-
     def depost(self):
 
         self.ppin = int(input("Enter Your Pin"))

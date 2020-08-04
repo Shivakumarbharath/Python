@@ -4,14 +4,12 @@ except the first char itself. Go to the editor
 Sample String : 'restart'
 Expected Result : 'resta$t'''
 
-sample=input("Enter")
+sample = input("Enter")
 
 for i in range(len(sample)):
     if i != 1:
-        if sample[0]== sample[i]:
-            sample=sample.replace(sample[i],'$')
-
-
+        if sample[0] == sample[i]:
+            sample = sample.replace(sample[i], '$')
 
 print(sample)
 

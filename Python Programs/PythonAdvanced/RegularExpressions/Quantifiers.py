@@ -8,25 +8,23 @@ ex \d+ means one or more digits
 {m,n} min m and max n
 '''
 import re
+
 # r means regular expresions
 
-st="1 One by One 2 I will achieve 3 success  Ohg Okk Off On Of Ok"
+st = "1 One by One 2 I will achieve 3 success  Ohg Okk Off On Of Ok"
 
-
-result=re.findall(r'O\w+',st)# now it searchs for a patterno\w\w and replace with two
-
-print(result)
-
-
-result=re.findall(r'O\w?',st)# now it searchs for a patterno\w\w and replace with two
+result = re.findall(r'O\w+', st)  # now it searchs for a patterno\w\w and replace with two
 
 print(result)
 
-
-result=re.findall(r'O\w{1}',st)# now it searchs for a patterno\w\w and replace with two
+result = re.findall(r'O\w?', st)  # now it searchs for a patterno\w\w and replace with two
 
 print(result)
 
-result=re.findall(r'O\w+',st)# now it searchs for a patterno\w\w and replace with two
+result = re.findall(r'O\w{1}', st)  # now it searchs for a patterno\w\w and replace with two
+
+print(result)
+
+result = re.findall(r'O\w+', st)  # now it searchs for a patterno\w\w and replace with two
 
 print(result)

@@ -1,6 +1,6 @@
 import numpy as np
 
-#array is coolection of elements of same type
+# array is coolection of elements of same type
 
 '''
 Can create array using 

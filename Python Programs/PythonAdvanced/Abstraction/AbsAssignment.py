@@ -1,4 +1,4 @@
-from abc import abstractmethod,ABC
+from abc import abstractmethod, ABC
 
 
 class TouchScreen(ABC):
@@ -19,7 +19,6 @@ class Dell(TouchScreen):
         TouchScreen.__init__(self)
         pass
 
-
     @abstractmethod
     def Scroll(self):
         pass
@@ -39,6 +38,7 @@ class HP(TouchScreen):
 
     def Click(self):
         pass
+
 
 class DellNote(Dell):
     def __init__(self):
@@ -64,12 +64,9 @@ class HPNote(Dell):
         print(" HP Button Clicked")
 
 
+hp = HPNote()
 
-
-hp=HPNote()
-
-dl=DellNote()
-
+dl = DellNote()
 
 hp.Click()
 

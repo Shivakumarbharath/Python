@@ -16,7 +16,6 @@ class Main(Screen):
     email = ObjectProperty(None)
     contact = ObjectProperty(None)
 
-
     def getValues(self):
         self.firstname = self.first_name.text
         self.lastname = self.last_name.text
@@ -43,12 +42,11 @@ class Main(Screen):
 
         db.commit()
         db.close()
-        self.sts.text="Account Created"
+        self.sts.text = "Account Created"
 
     # Creating content in python file is better than in kv file
     def EditPop(self):
-
-        self.grid = GridLayout(rows=3,padding=10)
+        self.grid = GridLayout(rows=3, padding=10)
 
         self.grid.add_widget(Label(text="First Name :"))
         self.text = TextInput(multiline=False)
@@ -56,14 +54,12 @@ class Main(Screen):
         popbtn = Button(text="search")
         self.grid.add_widget(popbtn)
         pop = Popup(title="Edit", content=self.grid, size_hint=(None, None), size=(300, 300))
-        popbtn.bind(on_press=lambda x: self.pop(self.text.text), on_release=lambda x:pop.dismiss())
+        popbtn.bind(on_press=lambda x: self.pop(self.text.text), on_release=lambda x: pop.dismiss())
         pop.open()
 
         return self.text.text
 
-
     def pop(self, name):
-
         db = sqlite3.connect('details.db')
         c = db.cursor()
         self.details = c.execute('''SELECT * FROM Info WHERE first_name = '{}' '''.format(name)).fetchall()
@@ -71,23 +67,21 @@ class Main(Screen):
         sm.current = 'Edit'
         return self.details
 
-
     def view(self):
-        sm.current='view'
+        sm.current = 'view'
 
 
 class Edit(Screen):
 
-
     def on_pre_enter(self, *args):
 
-        self.edit_name=sm.screens[0].details
+        self.edit_name = sm.screens[0].details
 
-        if len(self.edit_name)>0:
-            self.fn.text=self.edit_name[0][0]
-            self.ln.text=self.edit_name[0][1]
-            self.em.text=self.edit_name[0][2]
-            self.con.text=str(self.edit_name[0][3])
+        if len(self.edit_name) > 0:
+            self.fn.text = self.edit_name[0][0]
+            self.ln.text = self.edit_name[0][1]
+            self.em.text = self.edit_name[0][2]
+            self.con.text = str(self.edit_name[0][3])
         else:
             Editgrid = GridLayout(rows=3, padding=10)
 
@@ -95,28 +89,29 @@ class Edit(Screen):
             popbtn = Button(text="Ok")
             Editgrid.add_widget(popbtn)
             pop = Popup(title="Not Found", content=Editgrid, size_hint=(None, None), size=(400, 300))
-            popbtn.bind( on_release=lambda x: pop.dismiss())
+            popbtn.bind(on_release=lambda x: pop.dismiss())
             pop.open()
-            sm.current='login'
+            sm.current = 'login'
+
     def Save(self):
-        db=sqlite3.connect('details.db')
-        c=db.cursor()
+        db = sqlite3.connect('details.db')
+        c = db.cursor()
         c.execute('''UPDATE Info set (first_name,last_name,email,contact)=('{}','{}','{}',{}) WHERE first_name='{}'
-        '''.format(self.fn.text,self.ln.text,self.em.text,int(self.con.text),self.edit_name[0][0]))
+        '''.format(self.fn.text, self.ln.text, self.em.text, int(self.con.text), self.edit_name[0][0]))
         db.commit()
         db.close()
-        sm.current='login'
+        sm.current = 'login'
 
 
 class View(Screen):
 
     def on_pre_enter(self, *args):
-        db=sqlite3.connect('details.db')
-        c=db.cursor()
-        det=c.execute("SELECT OID,* FROM Info").fetchall()
+        db = sqlite3.connect('details.db')
+        c = db.cursor()
+        det = c.execute("SELECT OID,* FROM Info").fetchall()
         print(det)
-        self.m=GridLayout(rows=3)
-        self.v=GridLayout(cols=3,padding=[-5,10,5,5])
+        self.m = GridLayout(rows=3)
+        self.v = GridLayout(cols=3, padding=[-5, 10, 5, 5])
 
         for e in det:
             self.v.add_widget(Label(text=str(e[0])))
@@ -126,12 +121,13 @@ class View(Screen):
         print(self.v.children)
         self.m.add_widget(self.v)
         self.m.add_widget(Button(text='View one', size_hint=[0, .1], on_press=lambda x: self.One()))
-        self.m.add_widget(Button(text='Back',size_hint=[0,.1],on_press=lambda x:self.click()))
+        self.m.add_widget(Button(text='Back', size_hint=[0, .1], on_press=lambda x: self.click()))
 
         self.add_widget(self.m)
 
     def click(self):
-        sm.current='login'
+        sm.current = 'login'
+
     def One(self):
         self.grid = GridLayout(rows=3, padding=10)
 
@@ -141,13 +137,12 @@ class View(Screen):
         popbtn = Button(text="Show")
         self.grid.add_widget(popbtn)
         pop = Popup(title="View", content=self.grid, size_hint=(None, None), size=(200, 200))
-        popbtn.bind(on_press=lambda x:self.leave(),on_release=lambda x: pop.dismiss())
+        popbtn.bind(on_press=lambda x: self.leave(), on_release=lambda x: pop.dismiss())
         pop.open()
         return self.text
 
     def leave(self):
-        sm.current='view2'
-
+        sm.current = 'view2'
 
     def on_leave(self, *args):
         self.clear_widgets(self.children)
@@ -155,16 +150,17 @@ class View(Screen):
 
 class View2(Screen):
     def on_pre_enter(self, *args):
-        fname=sm.screens[2].text.text
+        fname = sm.screens[2].text.text
         db = sqlite3.connect('details.db')
         c = db.cursor()
         self.view_details = c.execute('''SELECT * FROM Info WHERE first_name = '{}' '''.format(fname)).fetchall()
         db.close()
         print(self.view_details)
-        self.fname_view.text=self.view_details[0][0]
+        self.fname_view.text = self.view_details[0][0]
         self.lname_view.text = self.view_details[0][1]
         self.email_view.text = self.view_details[0][2]
         self.contact_view.text = str(self.view_details[0][3])
+
 
 class Manager(ScreenManager):
     pass
@@ -172,7 +168,9 @@ class Manager(ScreenManager):
 
 kv = Builder.load_file('Log.kv')
 
-sm=ScreenManager()
+sm = ScreenManager()
+
+
 class LoginApp(App):
 
     def build(self):

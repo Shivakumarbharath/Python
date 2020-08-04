@@ -15,20 +15,19 @@ c = Node(3)
 a.nextnode = b
 b.nextnode = c
 
-def Reversal(node):
 
-    lst=[]
+def Reversal(node):
+    lst = []
     while node != None and node.nextnode != None:
         lst.append(node)
-        node=node.nextnode
+        node = node.nextnode
     lst.append(node)
     print(lst)
-    lst=lst[::-1]
-    for e in range(len(lst)-1):
-        lst[e].nextnode=lst[e+1]
-    lst[-1].nextnode=None
+    lst = lst[::-1]
+    for e in range(len(lst) - 1):
+        lst[e].nextnode = lst[e + 1]
+    lst[-1].nextnode = None
+
 
 Reversal(a)
-print(c.nextnode.value,b.nextnode.value,a.nextnode)
-
-
+print(c.nextnode.value, b.nextnode.value, a.nextnode)

@@ -9,54 +9,50 @@ Actual Algorithm for reversal of sentences
 
 '''
 
-
-
-
-string='Hi my name is Bharath '
-#In python all are possible in one line
-final=' '.join(reversed(string.split()))
+string = 'Hi my name is Bharath '
+# In python all are possible in one line
+final = ' '.join(reversed(string.split()))
 print(final)
 
-#In manual
 
-#To split the words
+# In manual
+
+# To split the words
 def Split(string):
+    # To store the splitted words
+    words = []
+    # to make sure thast no spaces are the in words
+    spaces = [' ']
+    # Iterator
+    i = 0
 
-    #To store the splitted words
-    words=[]
-    #to make sure thast no spaces are the in words
-    spaces=[' ']
-    #Iterator
-    i=0
+    length = len(string)
 
-    length=len(string)
-
-    while i<length:
+    while i < length:
         if string[i] not in spaces:
-            word_start=i
+            word_start = i
 
         while string[i] not in spaces:
-            i+=1
+            i += 1
 
         words.append(string[word_start:i])
 
-        i+=1
+        i += 1
 
     return words
 
 
-#to reverse in a list
+# to reverse in a list
 def reverse(lst):
-    new_lst=[]
-    length=len(lst)-1
-    while length>=0:
+    new_lst = []
+    length = len(lst) - 1
+    while length >= 0:
         new_lst.append(lst[length])
-        length-=1
+        length -= 1
     return new_lst
 
 
-#to Join the string
-final=' '.join(reverse(Split(string)))
+# to Join the string
+final = ' '.join(reverse(Split(string)))
 
 print(final)
-

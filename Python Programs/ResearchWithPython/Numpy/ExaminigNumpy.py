@@ -86,15 +86,13 @@ This is why the output is just a single true or false.
 
 import numpy as np
 
-y=np.linspace(0,100,11)
+y = np.linspace(0, 100, 11)
 print(y)
 
-j=np.logspace(1,2,3)
+j = np.logspace(1, 2, 3)
 print(j)
 
-
-
-k=np.logspace(np.log10(250),np.log10(500),7)
+k = np.logspace(np.log10(250), np.log10(500), 7)
 print(k)
 
 '''
@@ -103,37 +101,10 @@ fulfill some logical condition.
 Let's generate a small one d array and check two things.
 '''
 
-ran=np.random.random(10)
+ran = np.random.random(10)
 
 print(ran)
 
-print(np.any(ran<0.9 ))
+print(np.any(ran < 0.9))
 
-print(np.all(ran>=0.1))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(np.all(ran >= 0.1))

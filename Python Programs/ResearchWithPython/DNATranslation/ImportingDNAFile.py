@@ -82,10 +82,10 @@ and we are ready to move on.
 
 '''
 
-input_file="dna.txt"
-f=open(input_file,"r")
-seq=f.read()
-#seq=seq.replace('\n','')#so that they are in one line
-seq=seq.replace('\r','')#there will be an extra invisible charecter
+input_file = "dna.txt"
+f = open(input_file, "r")
+seq = f.read()
+# seq=seq.replace('\n','')#so that they are in one line
+seq = seq.replace('\r', '')  # there will be an extra invisible charecter
 
 print(seq)

@@ -1,9 +1,9 @@
-#initialisation of Binary
-bin=0b01110110010
+# initialisation of Binary
+bin = 0b01110110010
 print(bin)
-#Hxeadecimal
-X=0xabcde
+# Hxeadecimal
+X = 0xabcde
 print(X)
-#octal
-oct=0o456
+# octal
+oct = 0o456
 print(oct)

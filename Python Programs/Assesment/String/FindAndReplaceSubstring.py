@@ -8,16 +8,14 @@ Expected Result : 'The lyrics is good!'
 'The lyrics is poor!'
 '''
 
+Srt1 = input("Enter the Sentence")
 
-Srt1=input("Enter the Sentence")
+inot = Srt1.find('not')
 
-inot=Srt1.find('not')
+ipoor = Srt1.find('poor')
 
-ipoor=Srt1.find('poor')
-
-
-if (inot<ipoor) and (inot >= 0) and (ipoor>=0):#(inot >= 0) and (ipoor>=0) - because if find is false it returns -1
-    Srt1=Srt1.replace(Srt1[inot:ipoor+4],'good')
-
+if (inot < ipoor) and (inot >= 0) and (
+        ipoor >= 0):  # (inot >= 0) and (ipoor>=0) - because if find is false it returns -1
+    Srt1 = Srt1.replace(Srt1[inot:ipoor + 4], 'good')
 
 print(Srt1)

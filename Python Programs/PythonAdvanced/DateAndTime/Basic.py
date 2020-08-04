@@ -1,11 +1,11 @@
-import time,datetime
+import time, datetime
 
-epochtime=time.time()
+epochtime = time.time()
 print(epochtime)
 
-t=time.ctime()
+t = time.ctime()
 print(t)
 
 print(time.ctime(epochtime))
-tt=datetime.datetime.today()
-print("Currrent DAte : {}\{}\{}".format(tt.day,tt.month,tt.year))
+tt = datetime.datetime.today()
+print("Currrent DAte : {}\{}\{}".format(tt.day, tt.month, tt.year))

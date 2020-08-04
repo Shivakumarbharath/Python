@@ -12,11 +12,11 @@ Expected Result : Empty String
 
 '''
 
-sample=input("Enter a string")
+sample = input("Enter a string")
 
-if len(sample)>=2:
-    exp=sample[0:2]+sample[-2:]
+if len(sample) >= 2:
+    exp = sample[0:2] + sample[-2:]
 else:
-    exp=''
+    exp = ''
 
 print(exp)

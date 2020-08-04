@@ -5,18 +5,15 @@ from PIL import Image, ImageTk
 
 import sqlite3
 
-root=Tk()
+root = Tk()
 root.geometry('500x500+100+100')
 root.title("Things To DO")
-icon="icon.ico"
+icon = "icon.ico"
 root.iconbitmap(icon)
-root.resizable(0,0)
-
+root.resizable(0, 0)
 
 
 class Create_Category:
-
-
 
     def __init__(self, master, catogory_name):
         self.widgetlist = []
@@ -43,7 +40,7 @@ class Create_Category:
         self.my_scrollbar.config(command=self.canvas.yview)
         self.my_Hscrollbar.config(command=self.canvas.xview)
         self.my_scrollbar.place(relx=0.677, rely=0.12, height=304)
-        self.my_Hscrollbar.place(relx=0.27,rely=0.75,width=203)
+        self.my_Hscrollbar.place(relx=0.27, rely=0.75, width=203)
 
         # Bind the functionality of scroll bar to container frame
         self.containerFrame.bind(
@@ -81,15 +78,17 @@ class Create_Category:
         # to add the task entry
 
         self.addButton = Button(self.baseFrame, text="Add task",
-                                command=self.Ask_task,relief=GROOVE,fg='blue')  # ,command=lambda :self.Add_task("jlfksdfj"))
+                                command=self.Ask_task, relief=GROOVE,
+                                fg='blue')  # ,command=lambda :self.Add_task("jlfksdfj"))
         self.addButton.place(relx=0.2, rely=0.8)
 
         # save changes of the task
-        self.save_buttonn = Button(self.baseFrame, text="Save changes", command=self.Save,relief=GROOVE,fg='green')
+        self.save_buttonn = Button(self.baseFrame, text="Save changes", command=self.Save, relief=GROOVE, fg='green')
         self.save_buttonn.place(relx=0.4, rely=0.8)
 
         # to delete any entries
-        self.del_entrry = Button(self.baseFrame, text="Delete Task", command=self.Delete_window,relief=GROOVE,fg='red')
+        self.del_entrry = Button(self.baseFrame, text="Delete Task", command=self.Delete_window, relief=GROOVE,
+                                 fg='red')
         self.del_entrry.place(relx=0.65, rely=0.8)
 
         # Database connection
@@ -107,15 +106,11 @@ class Create_Category:
         # To get from the database if previously stored
         self.tasks_dict = {}
         self.Retrive_from_database()
-        #print(self.tasks_dict,'79')
+        # print(self.tasks_dict,'79')
 
         # mouse wheel binding
         self.canvas.bind('<Enter>', self._bound_to_mousewheel)
         self.canvas.bind('<Leave>', self._unbound_to_mousewheel)
-
-
-
-
 
     # The 3 functions are used to bound the mouse wheel to the scroll bar
     def _bound_to_mousewheel(self, event):  # to bound only when the mouse is inside the canvas
@@ -158,20 +153,17 @@ class Create_Category:
         self.ask = Toplevel()
         self.ask.config(bg='white')
 
-
         self.ask.geometry('200x100+150+200')
         self.ask.iconbitmap(icon)
-        self.task_Entry = Entry(self.ask, width=28,bd=2)
+        self.task_Entry = Entry(self.ask, width=28, bd=2)
         self.task_Entry.place(relx=0.05, rely=0.4)
-        Label(self.ask, text="Your Task :", font=('ariel', 12, 'bold'),bg='white').place(relx=0.05, rely=0.15)
+        Label(self.ask, text="Your Task :", font=('ariel', 12, 'bold'), bg='white').place(relx=0.05, rely=0.15)
 
         self.Ad_button = Button(self.ask, text="Add", command=lambda: self.Add_task(self.task_Entry.get()))
         self.Ad_button.place(relx=0.4, rely=0.68)
 
     # to saves the changes in the database
     def Save(self):
-
-
 
         for e in self.tasks_dict:
             self.tasks_dict[e] = (self.tasks_dict[e][0], self.tasks_dict[e][0].get())
@@ -185,14 +177,11 @@ class Create_Category:
                 "UPDATE {}  SET status={} WHERE  tasks='{}'".format(self.catogory_name, self.tasks_dict[e][0].get(), e))
 
         self.details = self.c.execute("SELECT oid,* FROM {}".format(self.catogory_name))
-        #print(self.details.fetchall(), 'line93')
+        # print(self.details.fetchall(), 'line93')
         self.database.commit()
         self.database.close()
 
-
-        k=messagebox.showinfo('Save','Changes Saved to DataBase')
-
-
+        k = messagebox.showinfo('Save', 'Changes Saved to DataBase')
 
     # To add the new entry to the database
     def Add_to_database(self, entries, status_of_entry):
@@ -253,7 +242,7 @@ class Create_Category:
         self.del_wind.geometry("300x250+150+150")
         self.del_wind.resizable(0, 0)
         self.del_wind.iconbitmap(icon)
-        self.list_frame = Frame(self.del_wind,bg='white')
+        self.list_frame = Frame(self.del_wind, bg='white')
         self.delete_button = Button(self.del_wind, text="Delete",
                                     command=lambda: self.Delete_task(self.del_list.get(ANCHOR)))
         my_scrollbar = Scrollbar(self.list_frame, orient=VERTICAL)
@@ -290,9 +279,8 @@ class Create_Category:
 
 
 class Menu_Class:
-    def __init__(self,root):
-        self.root=root
-
+    def __init__(self, root):
+        self.root = root
 
         self.main_menu = Menu(self.root)
         self.root.config(menu=self.main_menu)
@@ -306,8 +294,6 @@ class Menu_Class:
         self.options.add_command(label="New", command=self.New)
         self.options.add_separator()
 
-
-
         self.options.add_command(label="Delete", command=self.Del_menu)
         self.options.add_separator()
 
@@ -316,13 +302,10 @@ class Menu_Class:
 
         self.options.add_command(label="Exit", command=self.root.quit)
 
-
         self.Home()
         self.file = Menu(self.main_menu, tearoff=False)
         self.main_menu.add_cascade(label="Categories", menu=self.file)
         self.Retrive_catagories()
-
-
 
     def Home(self):
 
@@ -338,24 +321,18 @@ class Menu_Class:
         self.canvas_home.background = img  # Keep a reference in case this code is put in a function.
         bg = self.canvas_home.create_image(0, 0, anchor=NW, image=img)
 
-        qLab=Label(self.canvas_home,text='Conquer yourself and the\nwhole universe is yours...'.title(),bg='#f2f2f2',font=('helvatica',8,'italic'))
-        qLab.place(relx=0.05,rely=0.9)
+        qLab = Label(self.canvas_home, text='Conquer yourself and the\nwhole universe is yours...'.title(),
+                     bg='#f2f2f2', font=('helvatica', 8, 'italic'))
+        qLab.place(relx=0.05, rely=0.9)
 
         qLab = Label(self.canvas_home, text=' Created By Shivakumar Bharath'.title(),
-                      font=('helvatica', 6, 'italic'))
+                     font=('helvatica', 6, 'italic'))
         qLab.place(relx=0.01, rely=0.01)
-
 
         self.Profile()
 
-
-
-        #self.home_frame = Frame(self.root, bg='yellow')
-        #self.home_frame.pack(fill=BOTH,expand=1)
-
-
-
-
+        # self.home_frame = Frame(self.root, bg='yellow')
+        # self.home_frame.pack(fill=BOTH,expand=1)
 
     def Retrive_catagories(self):
         self.database = sqlite3.connect("DO_Not_Delete.db")
@@ -371,36 +348,29 @@ class Menu_Class:
         self.database.commit()
         self.database.close()
 
-
-
-
-
         for e in self.details:
-            var = self.file.add_command(label=e[0], command=lambda k=e[0]:self.Call_category(k))
+            var = self.file.add_command(label=e[0], command=lambda k=e[0]: self.Call_category(k))
 
-
-
-       # print(self.details,'314')
+    # print(self.details,'314')
 
     def Del_children(self):
         if self.root.winfo_exists() == 1:
             for e in self.root.winfo_children()[1:]:
                 e.destroy()
 
-    def Call_category(self,name):
-        #print(self.root.winfo_children(), '325')
+    def Call_category(self, name):
+        # print(self.root.winfo_children(), '325')
         self.Del_children()
 
         Create_Category(self.root, name)
-        #print(self.root.winfo_children(),'325')
+        # print(self.root.winfo_children(),'325')
 
-    def Create_Category_menu(self,name):
+    def Create_Category_menu(self, name):
 
         Create_Category(self.root, name)
 
-    def Newframe(self,name):
+    def Newframe(self, name):
         self.new_create.destroy()
-
 
         self.database = sqlite3.connect("DO_Not_Delete.db")
         self.c = self.database.cursor()
@@ -410,9 +380,9 @@ class Menu_Class:
 
         self.database.commit()
         self.database.close()
-        k=(name,)
+        k = (name,)
         self.details.append(k)
-        self.file.add_command(label=name, command=lambda:self.Call_category(name) )
+        self.file.add_command(label=name, command=lambda: self.Call_category(name))
         self.Call_category(name)
 
     def New(self):
@@ -422,17 +392,17 @@ class Menu_Class:
         self.new_create.config(bg="white")
         self.new_create.title("Create")
         self.new_create.geometry("250x100+250+250")
-        self.new_create.resizable(0,0)
+        self.new_create.resizable(0, 0)
         self.new_create.iconbitmap(icon)
 
-        Label(self.new_create,text="Create category By Name:",fg='Orange',bg='white',font=('ariel',12,'bold')).place(relx=0.08,rely=0.17)
-        name_of_category = Entry(self.new_create,width=33,bd=3)
-        name_of_category.place(relx=0.10,rely=0.42)
+        Label(self.new_create, text="Create category By Name:", fg='Orange', bg='white',
+              font=('ariel', 12, 'bold')).place(relx=0.08, rely=0.17)
+        name_of_category = Entry(self.new_create, width=33, bd=3)
+        name_of_category.place(relx=0.10, rely=0.42)
 
-        add_button = Button(self.new_create, text="Create",relief=GROOVE, command=lambda: self.Newframe(name_of_category.get().replace(' ','_')))
-        add_button.place(relx=0.45,rely=0.67)
-
-
+        add_button = Button(self.new_create, text="Create", relief=GROOVE,
+                            command=lambda: self.Newframe(name_of_category.get().replace(' ', '_')))
+        add_button.place(relx=0.45, rely=0.67)
 
     def Del_menu(self):
 
@@ -443,25 +413,22 @@ class Menu_Class:
         self.del_wind.geometry("300x250+150+150")
         self.del_wind.resizable(0, 0)
         self.del_wind.iconbitmap(icon)
-        self.list_frame = Frame(self.del_wind,bg='white')
+        self.list_frame = Frame(self.del_wind, bg='white')
         self.delete_button = Button(self.del_wind, text="Delete",
                                     command=lambda: self.Delete_task(self.del_list.get(ANCHOR)))
         my_scrollbar = Scrollbar(self.list_frame, orient=VERTICAL)
 
-        self.del_list = Listbox(self.list_frame, bd=3, width=40, yscrollcommand=my_scrollbar.set,bg='white')
+        self.del_list = Listbox(self.list_frame, bd=3, width=40, yscrollcommand=my_scrollbar.set, bg='white')
         my_scrollbar.config(command=self.del_list.yview)
         my_scrollbar.pack(side=RIGHT, fill=Y)
         self.list_frame.place(x=0, y=0)  # fill=BOTH,expand=1)
         self.del_list.pack(padx=15, pady=15)
         self.delete_button.place(relx=0.4, rely=0.8)
 
-        #print(self.details,'393')
+        # print(self.details,'393')
 
         for i, e in enumerate(self.details):
             self.del_list.insert(i, e[0])
-
-
-
 
     def Delete_task(self, entry):
 
@@ -476,14 +443,13 @@ class Menu_Class:
         for e in self.details:
             self.file.delete(e[0])
 
-        self.details=[]
+        self.details = []
 
         self.Retrive_catagories()
 
         self.Home()
 
         self.del_wind.destroy()
-
 
     def Profile(self):
 
@@ -495,53 +461,51 @@ class Menu_Class:
                                 Last_name TEXT 
                                 )""")
 
-        self.user=self.c.execute('SELECT * FROM name').fetchall()
+        self.user = self.c.execute('SELECT * FROM name').fetchall()
 
         self.database.commit()
         self.database.close()
-        self.lname=Label(self.root,text="",font=('helvatica',10,'bold italic'))
+        self.lname = Label(self.root, text="", font=('helvatica', 10, 'bold italic'))
         self.canvas_home.create_window(100, 245, anchor=CENTER, window=self.lname)
 
-        if len(self.user)<1:
-            self.name=Label(self.root,text="Welcome,\nYour Name",font=('helvatica',20,'bold italic'),bg='#f3f3f3')
-            self.canvas_home.create_window(100,200,anchor=CENTER,window=self.name)
-
-
-        else:
-            self.name = Label(self.root, text="Welcome,\n{}".format(self.user[0][0]), font=('helvatica', 20, 'bold italic'),bg='#f3f3f3')
+        if len(self.user) < 1:
+            self.name = Label(self.root, text="Welcome,\nYour Name", font=('helvatica', 20, 'bold italic'),
+                              bg='#f3f3f3')
             self.canvas_home.create_window(100, 200, anchor=CENTER, window=self.name)
 
 
-        if len(self.user)>0:
-            if len(self.user[0][1])>3:
+        else:
+            self.name = Label(self.root, text="Welcome,\n{}".format(self.user[0][0]),
+                              font=('helvatica', 20, 'bold italic'), bg='#f3f3f3')
+            self.canvas_home.create_window(100, 200, anchor=CENTER, window=self.name)
+
+        if len(self.user) > 0:
+            if len(self.user[0][1]) > 3:
                 self.lname.config(text=self.user[0][1])
 
     def Profile_name(self):
 
-
-
-
-
-        self.name_wind=Toplevel()
+        self.name_wind = Toplevel()
 
         self.name_wind.config(bg='white')
         self.name_wind.title('Your Name')
         self.name_wind.geometry('300x300+150+150')
         self.name_wind.iconbitmap(icon)
 
-        Label(self.name_wind,text='Provide Your Name! ',font=('',16,'bold'),fg='Gold',bg='white').place(relx=0.05,rely=0.05)
+        Label(self.name_wind, text='Provide Your Name! ', font=('', 16, 'bold'), fg='Gold', bg='white').place(relx=0.05,
+                                                                                                              rely=0.05)
 
-        f_name=Entry(self.name_wind,width=20,bd=3)
-        f_name.place(relx=0.2,rely=0.4)
+        f_name = Entry(self.name_wind, width=20, bd=3)
+        f_name.place(relx=0.2, rely=0.4)
 
-        l_name = Entry(self.name_wind, width=20,bd=3)
+        l_name = Entry(self.name_wind, width=20, bd=3)
         l_name.place(relx=0.2, rely=0.7)
 
-        Label(self.name_wind,text="First Name :",font=(',14'),bg='white').place(relx=0.2,rely=0.3)
-        Label(self.name_wind, text="Last Name :", font=(',14'),bg='white').place(relx=0.2, rely=0.55)
+        Label(self.name_wind, text="First Name :", font=(',14'), bg='white').place(relx=0.2, rely=0.3)
+        Label(self.name_wind, text="Last Name :", font=(',14'), bg='white').place(relx=0.2, rely=0.55)
 
-        btn=Button(self.name_wind,text="Submit",command=lambda :self.name_change(f_name.get(),l_name.get()))
-        btn.place(relx=0.4,rely=0.85)
+        btn = Button(self.name_wind, text="Submit", command=lambda: self.name_change(f_name.get(), l_name.get()))
+        btn.place(relx=0.4, rely=0.85)
 
     def name_change(self, f_name, l_name):
         self.database = sqlite3.connect("DO_Not_Delete.db")
@@ -558,18 +522,13 @@ class Menu_Class:
 
         self.name.config(text="Welcome,\n{}".format(f_name))
 
-        if len(l_name)>3:
+        if len(l_name) > 3:
             self.lname.config(text=l_name)
         else:
             self.lname.config(text='      ')
 
 
-
-
-
-k=Menu_Class(root)
-
-
+k = Menu_Class(root)
 
 root.mainloop()
-#pyinstaller --add-data "logo.jpg;." --add-data "background.jpg;." --add-data "feather.jpg;." --add-data "icon.ico;." --add-data "DO_Not_Delete.db;."  --icon "icon.ico" -n "Things To DO" -w -F  Final.py
+# pyinstaller --add-data "logo.jpg;." --add-data "background.jpg;." --add-data "feather.jpg;." --add-data "icon.ico;." --add-data "DO_Not_Delete.db;."  --icon "icon.ico" -n "Things To DO" -w -F  Final.py

@@ -28,9 +28,9 @@ result=np.linalg.solve(A,B)
 
 '''
 
-A=np.array([[1,1],[1.5,4]])
-B=np.array([2200,5050])
+A = np.array([[1, 1], [1.5, 4]])
+B = np.array([2200, 5050])
 
-result=np.linalg.solve(A,B)
+result = np.linalg.solve(A, B)
 
 print(result)

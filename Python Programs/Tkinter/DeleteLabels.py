@@ -1,9 +1,9 @@
 from tkinter import *
 
-root=Tk()
+root = Tk()
 
-E=Entry(root,width=50,font=('ariel',6))
-E.pack(padx=5,pady=5)
+E = Entry(root, width=50, font=('ariel', 6))
+E.pack(padx=5, pady=5)
 
 '''
 def delete():
@@ -16,22 +16,21 @@ def delete():
 def Click():
     global l
 
-
-    if l.winfo_exists()==1:
+    if l.winfo_exists() == 1:
         l.destroy()
-    hello='Hello  ' + E.get()
-    E.delete(0,END)
-    l=Label(root,text=hello)
+    hello = 'Hello  ' + E.get()
+    E.delete(0, END)
+    l = Label(root, text=hello)
     l.pack()
-    #btn['state']=DISABLED
+    # btn['state']=DISABLED
 
 
-btn=Button(root,text="Name",command=Click)
+btn = Button(root, text="Name", command=Click)
 btn.pack()
-l=Label(root,text='')
+l = Label(root, text='')
 l.pack()
 
-#delbtn=Button(root,text="Delete",command=delete)
-#delbtn.pack()
+# delbtn=Button(root,text="Delete",command=delete)
+# delbtn.pack()
 
 root.mainloop()

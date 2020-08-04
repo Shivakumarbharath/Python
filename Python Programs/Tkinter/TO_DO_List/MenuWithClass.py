@@ -1,11 +1,11 @@
 from tkinter import *
 import sqlite3
 
-
-root=Tk()
+root = Tk()
 root.geometry('500x500+100+100')
 root.title("My-to-List")
-root.resizable(0,0)
+root.resizable(0, 0)
+
 
 class Create_Category:
     tasks_dict = {}
@@ -49,15 +49,17 @@ class Create_Category:
         # to add the task entry
 
         self.addButton = Button(self.baseFrame, text="Add task",
-                                command=self.Ask_task,relief=GROOVE,fg='blue')  # ,command=lambda :self.Add_task("jlfksdfj"))
+                                command=self.Ask_task, relief=GROOVE,
+                                fg='blue')  # ,command=lambda :self.Add_task("jlfksdfj"))
         self.addButton.place(relx=0.2, rely=0.9)
 
         # save changes of the task
-        self.save_buttonn = Button(self.baseFrame, text="Save changes", command=self.Save,relief=GROOVE,fg='green')
+        self.save_buttonn = Button(self.baseFrame, text="Save changes", command=self.Save, relief=GROOVE, fg='green')
         self.save_buttonn.place(relx=0.4, rely=0.9)
 
         # to delete any entries
-        self.del_entrry = Button(self.baseFrame, text="Delete Task", command=self.Delete_window,relief=GROOVE,fg='red')
+        self.del_entrry = Button(self.baseFrame, text="Delete Task", command=self.Delete_window, relief=GROOVE,
+                                 fg='red')
         self.del_entrry.place(relx=0.65, rely=0.9)
 
         # Database connection
@@ -237,8 +239,8 @@ class Create_Category:
 
 
 class Menu_Class:
-    def __init__(self,root):
-        self.root=root
+    def __init__(self, root):
+        self.root = root
         self.main_menu = Menu(self.root)
         self.root.config(menu=self.main_menu)
 
@@ -259,16 +261,10 @@ class Menu_Class:
 
     def Home(self):
 
-
-
         self.Del_children()
 
         self.home_frame = Frame(self.root, bg='yellow')
-        self.home_frame.pack(fill=BOTH,expand=1)
-
-
-
-
+        self.home_frame.pack(fill=BOTH, expand=1)
 
     def Retrive_catagories(self):
         self.database = sqlite3.connect("DO_Not_Delete.db")
@@ -287,7 +283,7 @@ class Menu_Class:
         self.types = []
 
         for e in self.details:
-            var = self.file.add_command(label=e[1], command=lambda k=e[1]:self.Call_category(k))
+            var = self.file.add_command(label=e[1], command=lambda k=e[1]: self.Call_category(k))
             print(var)
             self.types.append(var)
 
@@ -300,7 +296,7 @@ class Menu_Class:
             for e in self.root.winfo_children()[1:]:
                 e.destroy()
 
-    def Call_category(self,name):
+    def Call_category(self, name):
 
         if self.root.winfo_exists() == 1:
             for e in self.root.winfo_children()[1:]:
@@ -309,14 +305,13 @@ class Menu_Class:
         Create_Category(self.root, name)
         print(self.root.winfo_children())
 
-    def Create_Category_menu(self,name):
+    def Create_Category_menu(self, name):
         # Hide_all_frames()
 
         self.frame = Frame(self.root, bg='blue')
 
         self.database = sqlite3.connect("DO_Not_Delete.db")
         self.c = self.database.cursor()
-
 
         self.c.execute("""INSERT INTO frames
                 VALUES ('{}')""".format(name))
@@ -326,13 +321,12 @@ class Menu_Class:
 
         Create_Category(self.root, name)
 
-    def Newframe(self,name):
+    def Newframe(self, name):
         self.new_create.destroy()
         self.file.delete("Exit")
 
         self.database = sqlite3.connect("DO_Not_Delete.db")
         self.c = self.database.cursor()
-
 
         self.c.execute("""INSERT INTO frames
                 VALUES ('{}')""".format(name))
@@ -340,7 +334,7 @@ class Menu_Class:
         self.database.commit()
         self.database.close()
         # Retrive_catagories()
-        self.file.add_command(label=name, command=lambda: Create_Category(self.root,name))
+        self.file.add_command(label=name, command=lambda: Create_Category(self.root, name))
         self.file.add_command(label="Exit", command=self.root.quit)
 
     def New(self):
@@ -349,17 +343,18 @@ class Menu_Class:
         self.new_create.config(bg="white")
         self.new_create.title("Create")
         self.new_create.geometry("250x100+250+250")
-        self.new_create.resizable(0,0)
+        self.new_create.resizable(0, 0)
 
-        Label(self.new_create,text="Create category By Name:",fg='Orange',bg='white',font=('ariel',12,'bold')).place(relx=0.08,rely=0.17)
-        name_of_category = Entry(self.new_create,width=33,bd=3)
-        name_of_category.place(relx=0.10,rely=0.42)
+        Label(self.new_create, text="Create category By Name:", fg='Orange', bg='white',
+              font=('ariel', 12, 'bold')).place(relx=0.08, rely=0.17)
+        name_of_category = Entry(self.new_create, width=33, bd=3)
+        name_of_category.place(relx=0.10, rely=0.42)
 
-        add_button = Button(self.new_create, text="Create",relief=GROOVE, command=lambda: self.Newframe(name_of_category.get().replace(' ','_')))
-        add_button.place(relx=0.45,rely=0.67)
+        add_button = Button(self.new_create, text="Create", relief=GROOVE,
+                            command=lambda: self.Newframe(name_of_category.get().replace(' ', '_')))
+        add_button.place(relx=0.45, rely=0.67)
 
-k=Menu_Class(root)
 
-
+k = Menu_Class(root)
 
 root.mainloop()

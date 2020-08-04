@@ -3,7 +3,7 @@
 Write a Python program to find those numbers which are divisible by 7 and multiple of 5, between 1500 and 2700 (both included)
 
 '''
-#soln
+# soln
 
 # for k in range(1500,2701):
 #     if (k%5==0) and (k%7==0):
@@ -23,7 +23,7 @@ Write a Python program to find those numbers which are divisible by 7 and multip
 * * 
 *
 '''
-#soln
+# soln
 
 # h=3
 # for i in range((h*2)):
@@ -41,7 +41,6 @@ Sample List : datalist = [1452, 11.23, 1+2j, True, 'w3resource', (0, -1), [5, 12
 # datalist = [1452, 11.23, 1 + 2j, True, 'w3resource', (0, -1), [5, 12], {"class": 'V', "section": 'A'}]
 # for e in datalist:
 #     print(e,type(e))
-
 
 
 '''
@@ -86,7 +85,7 @@ Expected Result : [[0, 0, 0, 0], [0, 1, 2, 3], [0, 2, 4, 6]]
 Rows = 3
 Columns = 4
 
-final=[[row*column for column in range(Columns)] for row in range(Rows)]
+final = [[row * column for column in range(Columns)] for row in range(Rows)]
 
 # for row in range(Rows):
 #     final.append([])
@@ -96,9 +95,9 @@ final=[[row*column for column in range(Columns)] for row in range(Rows)]
 print(final)
 
 for i in range(1, 5):
-    for k in range(1,i):
+    for k in range(1, i):
         print(k, end='')
     print()
-k=[[j for j in range(1,i)] for i in range(2,5)]
+k = [[j for j in range(1, i)] for i in range(2, 5)]
 
 print(k)

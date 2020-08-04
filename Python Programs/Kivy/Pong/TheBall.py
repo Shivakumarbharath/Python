@@ -34,7 +34,7 @@ class PongGame(Widget):
     ball = ObjectProperty(None)
 
     def serve_ball(self):
-        self.ball.velocity = Vector(4, 0).rotate(random.randint(0,360))
+        self.ball.velocity = Vector(4, 0).rotate(random.randint(0, 360))
 
     def update(self, dt):
         self.ball.move()

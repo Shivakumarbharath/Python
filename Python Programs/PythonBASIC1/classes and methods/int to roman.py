@@ -1,4 +1,3 @@
-
 class py_solution:
     def int_to_Roman(self, num):
         val = [
@@ -6,23 +5,22 @@ class py_solution:
             100, 90, 50, 40,
             10, 9, 5, 4,
             1
-            ]
+        ]
         syb = [
             "M", "CM", "D", "CD",
             "C", "XC", "L", "XL",
             "X", "IX", "V", "IV",
             "I"
-            ]
+        ]
         roman_num = ''
         i = 0
 
-
-        while  num > 0:
-            #print(i)
+        while num > 0:
+            # print(i)
             for _ in range(num // val[i]):
-                #print(i)
+                # print(i)
                 roman_num += syb[i]
-                #print(syb[i])
+                # print(syb[i])
                 num -= val[i]
             i += 1
         return roman_num

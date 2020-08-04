@@ -13,4 +13,3 @@ as input and prints the lines as output (all characters in lower case).
 #
 # for e in lst :
 #     print(e)
-

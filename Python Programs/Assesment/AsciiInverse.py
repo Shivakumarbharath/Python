@@ -11,12 +11,10 @@ counterpartCharCode("A") ➞ 97
 counterpartCharCode("a") ➞ 65
 '''
 
-
-char='gdgf'
+char = 'gdgf'
 
 
 def counterpartCharCode(char):
-
     if char.isalpha:
 
         if char.isupper():

@@ -104,29 +104,29 @@ is a copy of the original data, not a view as one gets for slices.
 '''
 
 import numpy as np
-z1=np.array([2,3,5,9,3,5,8,7,2,6])
+
+z1 = np.array([2, 3, 5, 9, 3, 5, 8, 7, 2, 6])
 print(z1)
-z2=z1+1
+z2 = z1 + 1
 
 print(z2)
-ind=[0,1,2]
+ind = [0, 1, 2]
 print(z2[ind])
 
-
-z3=np.array(ind)
+z3 = np.array(ind)
 print(z3)
 
-print(z1>6)
+print(z1 > 6)
 
-print(z1[z1>5])
+print(z1[z1 > 5])
 
-print(z2[z1>5])
+print(z2[z1 > 5])
 
-#copying by Indexing is better than slicing
-#caz slicing points at the same object
-#indexing
-z3=z1[ind]
+# copying by Indexing is better than slicing
+# caz slicing points at the same object
+# indexing
+z3 = z1[ind]
 print(z3)
-z3[0]=0
+z3[0] = 0
 print(z3)
 print(z1)

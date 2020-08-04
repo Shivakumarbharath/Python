@@ -1,23 +1,21 @@
 import sqlite3
-bankdet=sqlite3.connect("BankDetails.db")
-c=bankdet.cursor()
+
+bankdet = sqlite3.connect("BankDetails.db")
+c = bankdet.cursor()
 
 
-
-
-
-def deposit(req,acc):
+def deposit(req, acc):
     bankdet = sqlite3.connect("BankDetails.db")
     c = bankdet.cursor()
-    if acc==req[2]:
+    if acc == req[2]:
 
-        ppin=int(input("Enter Your Pin"))
+        ppin = int(input("Enter Your Pin"))
         if ppin == req[4]:
-            dep=int(input('Enter the amount to deposit'))
-            req[5]+=dep
+            dep = int(input('Enter the amount to deposit'))
+            req[5] += dep
             print('The balance in Your ACCOUNT is ₹', req[5])
 
-            c.execute("UPDATE details set bal={} WHERE acn={}".format(req[5],acc))
+            c.execute("UPDATE details set bal={} WHERE acn={}".format(req[5], acc))
 
 
         else:
@@ -25,17 +23,18 @@ def deposit(req,acc):
     bankdet.commit()
     bankdet.close()
 
-def withdraw(req,acc):
+
+def withdraw(req, acc):
     bankdet = sqlite3.connect("BankDetails.db")
     c = bankdet.cursor()
-    if acc==req[2]:
+    if acc == req[2]:
 
-        ppin=int(input("Enter Your Pin"))
+        ppin = int(input("Enter Your Pin"))
         if ppin == req[4]:
 
-            amt=int(input('Enter the amount for Withdrawal'))
+            amt = int(input('Enter the amount for Withdrawal'))
             if req[5] >= amt:
-                req[5]-=amt
+                req[5] -= amt
                 c.execute("UPDATE details set bal={} WHERE acn={}".format(req[5], acc))
 
             else:
@@ -48,12 +47,8 @@ def withdraw(req,acc):
     bankdet.close()
 
 
-
-
-
-
 def find(acc):
-    req=[]
+    req = []
     bankdet = sqlite3.connect("BankDetails.db")
     c = bankdet.cursor()
     allrec = c.execute("""SELECT * FROM details """).fetchall()
@@ -61,20 +56,14 @@ def find(acc):
     print(acc)
     for record in allrec:
         if acc == record[2]:
-            req=list(record)
+            req = list(record)
             return req
 
 
-
-
-
-
-
-
-
-while(1):
-    print('\n\n\nWelcome To ABC Bank\n1. Create Account\n2. Deposit\n3. Withdrawal\n4. Change Password\n5. Check Balance\n6. Exit')
-    a=int(input())
+while (1):
+    print(
+        '\n\n\nWelcome To ABC Bank\n1. Create Account\n2. Deposit\n3. Withdrawal\n4. Change Password\n5. Check Balance\n6. Exit')
+    a = int(input())
     if a is 1:
         bankdet = sqlite3.connect("BankDetails.db")
         c = bankdet.cursor()
@@ -99,20 +88,19 @@ while(1):
 
     elif a is 2:
         acc = int(input('Enter the account number : '))
-        req=find(acc)
+        req = find(acc)
 
-        if req ==None :
+        if req == None:
             print("Account Number not Exists")
             continue
 
-
-        req=req
-        deposit(req,acc)
+        req = req
+        deposit(req, acc)
 
     elif a is 3:
         acc = int(input('Enter the account number : '))
         req = find(acc)
-        if req ==None :
+        if req == None:
             print("Account Number not Exists")
             continue
         withdraw(req, acc)
@@ -126,20 +114,19 @@ while(1):
             print("Account Number not Exists")
             continue
 
-        pinn=int(input("Enter your Pin : "))
+        pinn = int(input("Enter your Pin : "))
         if req[4] == pinn:
-            confirm=input("Are you sure you want to change your pin ?(Y \ N) : ").capitalize()
+            confirm = input("Are you sure you want to change your pin ?(Y \ N) : ").capitalize()
             if confirm == 'Y':
-                pinr=input("Enter Your pin in Reverse(eg:1234-4321) : ")
+                pinr = input("Enter Your pin in Reverse(eg:1234-4321) : ")
 
-
-                if str(req[4])[::-1] ==  pinr:
-                    newpin1=int(input("Enter Your new Pin : "))
+                if str(req[4])[::-1] == pinr:
+                    newpin1 = int(input("Enter Your new Pin : "))
                     newpin2 = int(input("Confirm Your new Pin : "))
-                    if newpin1==newpin2:
+                    if newpin1 == newpin2:
                         bankdet = sqlite3.connect("BankDetails.db")
                         c = bankdet.cursor()
-                        c.execute("UPDATE details set pin ={} WHERE acn={}".format(newpin2,acc))
+                        c.execute("UPDATE details set pin ={} WHERE acn={}".format(newpin2, acc))
                         bankdet.commit()
                         bankdet.close()
                         print("Pin Changed Successfully!")
@@ -166,7 +153,7 @@ while(1):
 
         pinn = int(input("Enter your Pin : "))
         if req[4] == pinn:
-            print("Your Account Balance ₹ ",req[5])
+            print("Your Account Balance ₹ ", req[5])
 
         else:
             print("You Have Entered Wrong Pin\nPlease Try Again")

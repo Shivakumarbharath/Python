@@ -7,12 +7,11 @@ Sample String : 'string'
 Expected Result : 'stringly'
 '''
 
-
-sample=input("Enter")
-if len(sample)>=3:
+sample = input("Enter")
+if len(sample) >= 3:
     if sample[-3:] == 'ing':
-        sample+='ly'
+        sample += 'ly'
     else:
-        sample+='ing'
+        sample += 'ing'
 
 print(sample)

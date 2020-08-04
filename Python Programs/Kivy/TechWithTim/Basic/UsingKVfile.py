@@ -2,25 +2,27 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 
+
 class MyGrid(Widget):
-    firstname=ObjectProperty(None)
-    lastname=ObjectProperty(None)
-    email=ObjectProperty(None)
+    firstname = ObjectProperty(None)
+    lastname = ObjectProperty(None)
+    email = ObjectProperty(None)
 
     def Pressed(self):
-        #to get the text entered
-        name=self.firstname.text
-        last=self.lastname.text
-        email=self.email.text
+        # to get the text entered
+        name = self.firstname.text
+        last = self.lastname.text
+        email = self.email.text
 
-        print(name,last,email)
+        print(name, last, email)
 
-        #to clear the text
-        self.firstname.text=''
-        self.lastname.text=''
-        self.email.text=''
+        # to clear the text
+        self.firstname.text = ''
+        self.lastname.text = ''
+        self.email.text = ''
 
         print("presed")
+
 
 class My2App(App):
     def build(self):
@@ -28,7 +30,6 @@ class My2App(App):
 
 
 My2App().run()
-
 
 '''
 <MyGrid>

@@ -6,11 +6,11 @@ Input number of students, names and grades of each student.
 
 '''
 
-n=int(input("No of students? "))
-fin=[]
+n = int(input("No of students? "))
+fin = []
 for i in range(n):
-    name=input("Enter name :")
-    grade=int(input("Enter the grade: "))
-    fin.append((name,grade))
-ind=fin.remove(min(fin,key=lambda x:x[1]))
-print(min(fin,key=lambda x:x[1])[0])
+    name = input("Enter name :")
+    grade = int(input("Enter the grade: "))
+    fin.append((name, grade))
+ind = fin.remove(min(fin, key=lambda x: x[1]))
+print(min(fin, key=lambda x: x[1])[0])

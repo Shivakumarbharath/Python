@@ -243,25 +243,23 @@ taking 10,000 steps.
 
 '''
 
-
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-delta_x=np.random.normal(0,1,(2,1000))#(location,standerd deviation,table
+delta_x = np.random.normal(0, 1, (2, 1000))  # (location,standerd deviation,table
 print(delta_x)
-#plt.plot(delta_x[0],delta_x[1],'go')
-#plt.show()
+# plt.plot(delta_x[0],delta_x[1],'go')
+# plt.show()
 
-#cumilative sum
-x_cumsum=np.cumsum(delta_x,axis=1)
+# cumilative sum
+x_cumsum = np.cumsum(delta_x, axis=1)
 print(x_cumsum)
-#plt.plot(x_cumsum[0],x_cumsum[1],'yd-')
-#plt.show()
+# plt.plot(x_cumsum[0],x_cumsum[1],'yd-')
+# plt.show()
 
-#after concatination
+# after concatination
 
-x_0=np.array([[0],[0]])
-y=np.concatenate((x_0,x_cumsum),axis=1)#starts at zero
-plt.plot(y[0],y[1],"bs-")
+x_0 = np.array([[0], [0]])
+y = np.concatenate((x_0, x_cumsum), axis=1)  # starts at zero
+plt.plot(y[0], y[1], "bs-")
 plt.show()

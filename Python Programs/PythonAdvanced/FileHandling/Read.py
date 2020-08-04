@@ -1,12 +1,9 @@
-import os,sys #for checking a file
-
+import os, sys  # for checking a file
 
 if os.path.isfile("myfile.txt"):
 
-
-
-    f=open("myfile.txt","r")
-    s=f.read()
+    f = open("myfile.txt", "r")
+    s = f.read()
     print(s)
     f.close()
 

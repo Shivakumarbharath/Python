@@ -1,7 +1,8 @@
 import sqlite3
-bankdet=sqlite3.connect("BankDetails.db")
 
-c=bankdet.cursor()
+bankdet = sqlite3.connect("BankDetails.db")
+
+c = bankdet.cursor()
 
 c.execute(""" CREATE TABLE  details 
           

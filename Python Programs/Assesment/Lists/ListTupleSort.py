@@ -24,11 +24,10 @@ print(lst3)
 
 '''
 
-#but more efficient Alternative
+# but more efficient Alternative
 
-lst1=[(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]
-print(sorted(lst1,key=lambda element:element[1]))
-print(sorted(lst1,key=lambda element:element[1],reverse=True))
+lst1 = [(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]
+print(sorted(lst1, key=lambda element: element[1]))
+print(sorted(lst1, key=lambda element: element[1], reverse=True))
 
-#key will record which par of the list should be sorted
-
+# key will record which par of the list should be sorted

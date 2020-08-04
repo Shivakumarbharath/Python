@@ -1,10 +1,10 @@
 from cryptography.fernet import Fernet
 
-key=input('Enter key').encode('utf-8')
+key = input('Enter key').encode('utf-8')
 
-msg=input('Enter message').encode('utf-8')
+msg = input('Enter message').encode('utf-8')
 
-f=Fernet(key)
+f = Fernet(key)
 
 print(f.decrypt(msg).decode('utf-8'))
 

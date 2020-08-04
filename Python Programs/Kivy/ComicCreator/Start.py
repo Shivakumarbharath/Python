@@ -1,5 +1,6 @@
 from kivy.app import App
 from kivy.lang import Builder
+
 '''
 The Builder class is in charge of loading and parsing all the Kivy
 language. The load_file method allows us to specify a file containing
@@ -21,5 +22,6 @@ class ComicCreatorApp(App):
     def build(self):
         return ComicCreator()
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     ComicCreatorApp().run()

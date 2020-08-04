@@ -1,7 +1,9 @@
-def Like(prevn,bool):
+def Like(prevn, bool):
     if bool is True:
-        prevn+=1
+        prevn += 1
         print(prevn)
     else:
         print(prevn)
-Like(50,False)
+
+
+Like(50, False)

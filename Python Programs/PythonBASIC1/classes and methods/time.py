@@ -13,8 +13,10 @@ class Time:
         if sum.hours > 12:
             sum.hours -= 12
         return sum
+
     def printtime(time):
-        print(str(time.hours)+' '+str(time.min)+' '+str(time.sec))
+        print(str(time.hours) + ' ' + str(time.min) + ' ' + str(time.sec))
+
     def increament(time, sec):
         time.sec += sec
         while time.sec >= 60:  # can give
@@ -25,9 +27,11 @@ class Time:
                 time.min -= 60
                 time.hours += 1
         return time
-currenttime=Time()
-currenttime.hours=int(input('Enter the hours'))
-currenttime.min=int(input('Enter the minutes'))
-currenttime.sec=int(input('Enter the seconds'))
-time2=currenttime.increament(66)
+
+
+currenttime = Time()
+currenttime.hours = int(input('Enter the hours'))
+currenttime.min = int(input('Enter the minutes'))
+currenttime.sec = int(input('Enter the seconds'))
+time2 = currenttime.increament(66)
 time2.printtime()

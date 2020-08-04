@@ -13,7 +13,7 @@ class DoublyLinkedNode:
     def __init__(self, value):
         self.value = value  # to store the value
         self.next_node = None  # to store the reference of the next node
-        self.prev_node=None# to store the reference of the previous node
+        self.prev_node = None  # to store the reference of the previous node
 
 
 if __name__ == '__main__':
@@ -22,12 +22,10 @@ if __name__ == '__main__':
     b = DoublyLinkedNode(2)
     c = DoublyLinkedNode(3)
 
-    a.next_node=b
-    b.prev_node=a
+    a.next_node = b
+    b.prev_node = a
 
-    b.next_node=c
-    c.prev_node=b
+    b.next_node = c
+    c.prev_node = b
 
-    print(a.next_node.value,b.prev_node.value)
-
-
+    print(a.next_node.value, b.prev_node.value)

@@ -5,15 +5,11 @@ If you don't have any logging record and your program crashes,
  there are very little chances that you detect the cause of the problem.
 '''
 
-
-
 import logging
 
-
-logging.basicConfig(filename="MyFIle",level=logging.DEBUG)
+logging.basicConfig(filename="MyFIle", level=logging.DEBUG)
 logging.critical("Error")
 logging.error("Error")
 logging.warning("Error")
 logging.info("Error")
 logging.debug("Error")
-

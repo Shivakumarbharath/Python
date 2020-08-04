@@ -1,7 +1,7 @@
 import sqlite3
 
-conn=sqlite3.connect("Our_data.db")
-c=conn.execute("""INSERT INTO Employee_records(ID,name,dept,STARS)
+conn = sqlite3.connect("Our_data.db")
+c = conn.execute("""INSERT INTO Employee_records(ID,name,dept,STARS)
 VALUES(2,'SUJITH','CSE',10)
 
 

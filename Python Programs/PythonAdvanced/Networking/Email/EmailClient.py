@@ -1,23 +1,21 @@
-import smtplib#for dealing with emails
-from email.mime.text import MIMEText # to build the message including the body,subject ,from, to etc.
+import smtplib  # for dealing with emails
+from email.mime.text import MIMEText  # to build the message including the body,subject ,from, to etc.
 
-
-
-body="""Hi!
+body = """Hi!
  This is ABC.
  This is a Test Mail."""
 
-msg=MIMEText(body)
+msg = MIMEText(body)
 
-msg['From']='From Address@gmail.com'
+msg['From'] = 'From Address@gmail.com'
 
-msg['To']='ToAdress@gmail.com'
-msg['Subject']='Hello'
+msg['To'] = 'ToAdress@gmail.com'
+msg['Subject'] = 'Hello'
 
-server=smtplib.SMTP('smtp.gmail.com',587)
+server = smtplib.SMTP('smtp.gmail.com', 587)
 
 server.starttls()
-server.login('FromAdress@gmail.com','Password')
+server.login('FromAdress@gmail.com', 'Password')
 '''
 
 if you get this error 

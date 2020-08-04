@@ -112,5 +112,3 @@ has been removed from MyList.
 
 
 '''
-
-

@@ -167,8 +167,7 @@ return identical objects.
 
 '''
 
-
-text="This is my test text. Help me finding the mistake in my text, now this is my text"
+text = "This is my test text. Help me finding the mistake in my text, now this is my text"
 
 
 def count_words(text):
@@ -179,23 +178,23 @@ def count_words(text):
     :param text:
     :return a dictionary of number of words :
     """
-    count={}
-    text=text.lower()
-    skips=[".",",",":",";",'"']
+    count = {}
+    text = text.lower()
+    skips = [".", ",", ":", ";", '"']
     for skip in skips:
-        text=text.replace(skip,'')
+        text = text.replace(skip, '')
 
     for word in text.split(" "):
         if word in count:
-            count[word]+=1
+            count[word] += 1
         else:
-            count[word]=1
-    return  count
+            count[word] = 1
+    return count
+
 
 print(count_words(text))
 
-
-#using the inbuilt function
+# using the inbuilt function
 from collections import Counter
 
 
@@ -208,12 +207,13 @@ def count_words_fast(text):
     :return a dictionary of number of words :
     """
 
-    text=text.lower()
-    skips=[".",",",":",";",'"']
+    text = text.lower()
+    skips = [".", ",", ":", ";", '"']
     for skip in skips:
-        text=text.replace(skip,'')
+        text = text.replace(skip, '')
 
-    count=Counter(text.split(' '))
-    return  count
+    count = Counter(text.split(' '))
+    return count
+
 
 print(dict(count_words_fast(text)))

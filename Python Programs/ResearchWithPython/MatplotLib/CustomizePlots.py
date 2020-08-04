@@ -89,19 +89,18 @@ In this case, my plot is beautifully stored in a pdf file.
 import numpy as np
 import matplotlib.pyplot as plt
 
-x=np.linspace(0,20,21)
-y1=x**2
-y2=x**1.5
+x = np.linspace(0, 20, 21)
+y1 = x ** 2
+y2 = x ** 1.5
 
-print(x,y1)
-plt.plot(x,y1,"gs-",linewidth=2,markersize=4,label="First")#gs is green squares
-plt.plot(x,y2,"rd-",linewidth=2,markersize=4,label="Second")
-plt.legend(loc="upper left")#to  diplay the labels of the plot
-plt.xlabel("$X$")#dollor gives an italian look
+print(x, y1)
+plt.plot(x, y1, "gs-", linewidth=2, markersize=4, label="First")  # gs is green squares
+plt.plot(x, y2, "rd-", linewidth=2, markersize=4, label="Second")
+plt.legend(loc="upper left")  # to  diplay the labels of the plot
+plt.xlabel("$X$")  # dollor gives an italian look
 plt.ylabel("$Y$")
-plt.axis([.5,30,-50,400])#Limit the window axes
+plt.axis([.5, 30, -50, 400])  # Limit the window axes
 # plt.axis([xmin,xmax,ymin,ymax])
-plt.savefig("myplot.png")# to save the figure
-#print(p)
+plt.savefig("myplot.png")  # to save the figure
+# print(p)
 plt.show()
-

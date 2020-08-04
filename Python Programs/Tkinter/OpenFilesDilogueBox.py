@@ -1,11 +1,11 @@
 from tkinter import *
 from tkinter import filedialog
-from PIL import Image,ImageTk
+from PIL import Image, ImageTk
 
-root=Tk()
+root = Tk()
 
 
-#to open the files as it is
+# to open the files as it is
 
 
 def open():
@@ -15,15 +15,13 @@ def open():
                                                title="MY Viewer Files",
                                                filetypes=(("jpg files", "*.jpg"), ("all files", '*.*')))
 
-    #to function when clicked
-    my_Label=Label(root,text=root.filename).pack()
+    # to function when clicked
+    my_Label = Label(root, text=root.filename).pack()
     print(root.filename)
-    my_img=ImageTk.PhotoImage(Image.open(root.filename))
-    my_img_lab=Label(image=my_img).pack()
+    my_img = ImageTk.PhotoImage(Image.open(root.filename))
+    my_img_lab = Label(image=my_img).pack()
 
 
-btn=Button(root,text="Open Files",command=open).pack()
-
-
+btn = Button(root, text="Open Files", command=open).pack()
 
 root.mainloop()

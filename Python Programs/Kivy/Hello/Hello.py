@@ -1,4 +1,4 @@
-from kivy.app import App #creation of an app
+from kivy.app import App  # creation of an app
 from kivy.uix.label import Label
 
 '''
@@ -13,13 +13,15 @@ be foo.kv and it must be in the same directory of the main file
 
 
 '''
-class Hello2App(App):# The App class is the starting point of any Kivy #application.
+
+
+class Hello2App(App):  # The App class is the starting point of any Kivy #application.
 
     def build(self):
         return Label()
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     Hello2App().run()
 '''
 # File name: hello2.kv

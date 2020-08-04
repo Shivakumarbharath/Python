@@ -7,11 +7,12 @@ Expected Result : 2
 
 '''
 
-lst=input().split(',')
+lst = input().split(',')
+
 
 def FirstLast(str):
-    if len(str)>=2:
-        if str[0]==str[-1]:
+    if len(str) >= 2:
+        if str[0] == str[-1]:
             return 1
         else:
             return 0
@@ -19,10 +20,9 @@ def FirstLast(str):
         return 0
 
 
-res=list(map(FirstLast,lst))
+res = list(map(FirstLast, lst))
 
 print(sum(res))
-
 
 '''
 

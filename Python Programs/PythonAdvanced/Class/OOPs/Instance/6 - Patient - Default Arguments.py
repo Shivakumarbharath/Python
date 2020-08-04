@@ -6,6 +6,7 @@ class Patient:
         self.allergies = allergies
         self.num_children = num_children
 
+
 # First alternative - Pass all arguments
 patient1 = Patient("Lulu", 35, ["Peanut", "Chocolate"], 2)
 

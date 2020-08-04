@@ -10,7 +10,8 @@ class WidgetApp(App):
     def build(self):
         return mywidgets()
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     WidgetApp().run()
 
 '''

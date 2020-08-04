@@ -1,4 +1,4 @@
-#normal program
+# normal program
 # def square(num ):
 #     result=[]
 #     for i in num:
@@ -8,25 +8,24 @@
 # this returns a list
 #
 
-#using generators
+# using generators
 def square(num):
     for i in num:
-        yield i**2
+        yield i ** 2
 
-result=square([1,2,3,4])
+
+result = square([1, 2, 3, 4])
 
 print(next(result))
 print(next(result))
 print(next(result))
 print(next(result))
 
-#we can use for loop
+# we can use for loop
 
-#advantage
-#generators does not hold all the values at a time in memory
-#if millions of iterations are there then using generators memory can be managed
-#it is also good in the time complexity
+# advantage
+# generators does not hold all the values at a time in memory
+# if millions of iterations are there then using generators memory can be managed
+# it is also good in the time complexity
 
-#it waits untill someone is asking for the values
-
-
+# it waits untill someone is asking for the values

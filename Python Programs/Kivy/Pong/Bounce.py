@@ -6,8 +6,10 @@ from kivy.vector import Vector  # to get the vector postion
 from kivy.clock import Clock
 import random
 
+
 class PongPaddle(Widget):
     pass
+
 
 class PongBall(Widget):  # all the classes created will be a rule in .kv file
     # to create the animation
@@ -41,12 +43,12 @@ class PongGame(Widget):
     def update(self, dt):
         self.ball.move()
 
-        #y bounce
-        if (self.ball.y<0)or (self.ball.y>self.height-50):
-            self.ball.velocity_y*=-1
+        # y bounce
+        if (self.ball.y < 0) or (self.ball.y > self.height - 50):
+            self.ball.velocity_y *= -1
 
         # x bounce
-        if (self.ball.x < 0) or (self.ball.x > self.width-50):
+        if (self.ball.x < 0) or (self.ball.x > self.width - 50):
             self.ball.velocity_x *= -1
 
 

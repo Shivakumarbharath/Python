@@ -195,12 +195,11 @@ print(np.random.normal(0,1,5))to make two d put() instead of 5
 
 '''
 
-x=np.random.randint(1,7,(10,3))
+x = np.random.randint(1, 7, (10, 3))
 print(x.shape)
 print(x)
-print(np.sum(x,axis=1))#axis 0 is 1d and 1 is 2d d
+print(np.sum(x, axis=1))  # axis 0 is 1d and 1 is 2d d
 
-y=np.sum(x,axis=1)
+y = np.sum(x, axis=1)
 plt.hist(y)
 plt.show()
-

@@ -70,14 +70,13 @@ appears to contain about 7,500 words, but in length it's about 20,000.
 
 '''
 
+
 def word_stats(word_counts):
     """
     Returns number of uniqe words and frequency of repetation
     :param word_counts:
     :return:
     """
-    num_uniqe=len(word_counts)
-    freq=word_counts.values()
-    return (num_uniqe,list(freq))
-
-
+    num_uniqe = len(word_counts)
+    freq = word_counts.values()
+    return (num_uniqe, list(freq))

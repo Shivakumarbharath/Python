@@ -7,6 +7,3 @@ def f1(a=0):
 go = f1(656)
 print(next(go))
 print(next(go))
-
-
-

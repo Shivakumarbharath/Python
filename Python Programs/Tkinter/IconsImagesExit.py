@@ -1,5 +1,5 @@
 from tkinter import *
-from PIL import ImageTk,Image
+from PIL import ImageTk, Image
 
 filename = 'StylishAA.jpg'
 img = Image.open(filename)
@@ -14,22 +14,17 @@ root.photoimg = ImageTk.PhotoImage(resized_img)
 labelimage = Label(root, image=root.photoimg)
 labelimage.pack()
 
-
-#the below works if no resizing
+# the below works if no resizing
 
 # my_img=ImageTk.PhotoImage(Image.open(img location))
 # lab=Label(image=my_img)
 # lab.pack()
 
 
-ext=Button(root,text='Exit',command=root.quit)
+ext = Button(root, text='Exit', command=root.quit)
 ext.pack()
 
-
-
-
 root.mainloop()
-
 
 '''
 filename = 'bell.jpg'

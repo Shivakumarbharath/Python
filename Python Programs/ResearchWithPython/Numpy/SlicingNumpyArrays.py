@@ -82,17 +82,17 @@ between these two arrays.
 
 import numpy as np
 
-x=np.array([1,2,3])
-y=np.array([4,5,6])
+x = np.array([1, 2, 3])
+y = np.array([4, 5, 6])
 
-X = np.array([[1, 2, 3],[8,5,6]])
-Y = np.array([[4, 5, 6],[9,5,1]])
+X = np.array([[1, 2, 3], [8, 5, 6]])
+Y = np.array([[4, 5, 6], [9, 5, 1]])
 
 print(x[2])
 print(x[0:2])
-z=x+y
+z = x + y
 print(z)
-print(X[:,1])#acess the 1st column
-print(X[1])#acess the first row
+print(X[:, 1])  # acess the 1st column
+print(X[1])  # acess the first row
 
-print(X[1,1])#access by row,column
+print(X[1, 1])  # access by row,column

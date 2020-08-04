@@ -125,13 +125,12 @@ with four panels where each type of histogram appears in its own subplot.
 
 '''
 
-
 import matplotlib.pyplot as plt
 
 import numpy as np
 
-x=np.random.normal(size=1000)
+x = np.random.normal(size=1000)
 
-plt.hist(x,bins=np.linspace(-5,5,20))
+plt.hist(x, bins=np.linspace(-5, 5, 20))
 
 plt.show()

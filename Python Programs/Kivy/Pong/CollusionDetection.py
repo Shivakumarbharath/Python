@@ -11,14 +11,11 @@ class PongPaddle(Widget):
     # on_touch_down()-when our fingers/mouse touches the screen
     # on_touch_up()-when we lift of our fingers off the screen
     # on_touch_move()-when we drag our fingers or the mouseef
-    score=NumericProperty(0)
-    def ballBounce(self,ball):
+    score = NumericProperty(0)
+
+    def ballBounce(self, ball):
         if self.collide_widget(ball):
-            ball.velocity_x*=-1
-
-
-
-
+            ball.velocity_x *= -1
 
 
 class PongBall(Widget):  # all the classes created will be a rule in .kv file
@@ -57,20 +54,16 @@ class PongGame(Widget):
 
         # # y bounce
         if (self.ball.y < 0) or (self.ball.y > self.height - 50):
-           self.ball.velocity_y *= -1
-       # x bounce
+            self.ball.velocity_y *= -1
+        # x bounce
 
-
-
-        if self.ball.x < 0 :
+        if self.ball.x < 0:
             self.ball.velocity_x *= -1
-            self.player2.score+=1
+            self.player2.score += 1
 
         if self.ball.x > self.width - 5:
             self.ball.velocity_x *= -1
             self.player1.score += 1
-
-
 
         self.player1.ballBounce(self.ball)
         self.player2.ballBounce(self.ball)
@@ -85,7 +78,7 @@ class PongGame(Widget):
 
 class PongApp(App):
     def build(self):
-        #self.load_kv("Pong.kv")#sometimes in linux the program does not detect the .kv file
+        # self.load_kv("Pong.kv")#sometimes in linux the program does not detect the .kv file
         game = PongGame()
         game.serve_ball()
         Clock.schedule_interval(game.update, 1.0 / 60.0)

@@ -6,10 +6,8 @@ Expected Result : 'xyc abz'
 
 '''
 
+smpl = input("Enter 2 strings seperated by ',' ").split(',')
 
+chr1, chr2 = smpl[0][-1], smpl[1][-1]
 
-smpl=input("Enter 2 strings seperated by ',' ").split(',')
-
-chr1,chr2=smpl[0][-1],smpl[1][-1]
-
-print(smpl[0][0:-1]+chr2+' '+smpl[1][0:-1]+chr1)
+print(smpl[0][0:-1] + chr2 + ' ' + smpl[1][0:-1] + chr1)

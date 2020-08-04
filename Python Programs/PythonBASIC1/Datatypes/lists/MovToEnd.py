@@ -12,11 +12,10 @@ move_to_end(["a", "a", "a", "b"], "a") ➞ ["b", "a", "a", "a"]
 
 '''
 
-
-ls=[1, 3, 2, 4, 4, 1]
-el=1
-cnt=ls.count(el)
-for i in range(0,cnt):
+ls = [1, 3, 2, 4, 4, 1]
+el = 1
+cnt = ls.count(el)
+for i in range(0, cnt):
     ls.remove(el)
     ls.append(el)
 

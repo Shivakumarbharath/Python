@@ -22,43 +22,44 @@ target=k-r
 3.if found add to as output and pop out the target from the list
 
 '''
-i=[4,5,7,8,9,1,2,3,3,5]
-k=10
+i = [4, 5, 7, 8, 9, 1, 2, 3, 3, 5]
+k = 10
 
 
-def ArrayPair(lst,k):
+def ArrayPair(lst, k):
     import itertools
-    comb=list(itertools.combinations(lst,2))
-    fil=filter(lambda x:x[0]+x[1]==k,comb)
+    comb = list(itertools.combinations(lst, 2))
+    fil = filter(lambda x: x[0] + x[1] == k, comb)
     print(list(fil))
 
-#Best Algorithm
-def pair_sum(lst,k):
-    if len(lst)==2:
+
+# Best Algorithm
+def pair_sum(lst, k):
+    if len(lst) == 2:
         return
-    seen=set()
-    output=set()
+    seen = set()
+    output = set()
     for num in lst:
-        target= k-num
+        target = k - num
         if target not in seen:
-            seen.add(num)#add it to avoid being tested again
+            seen.add(num)  # add it to avoid being tested again
         else:
-            output.add((min(num,target),max(num,target)))
-    print('\n'.join(map(str,list(output))))
+            output.add((min(num, target), max(num, target)))
+    print('\n'.join(map(str, list(output))))
 
 
 def pai_sum_2(lst, k):
     if len(lst) == 2:
         return
-    new_lst=[]
+    new_lst = []
     for num in lst:
         target = k - num
-        if target==num:
+        if target == num:
             num = lst.pop(lst.index(num))
 
-        #print(target)
+        # print(target)
         if target in lst:
-            target2=lst.pop(lst.index(target))
+            target2 = lst.pop(lst.index(target))
             new_lst.append((min(num, target2), max(num, target2)))
 
         else:
@@ -67,9 +68,8 @@ def pai_sum_2(lst, k):
     print('\n'.join(map(str, new_lst)))
 
 
-
-#ArrayPair(i,k)
-pair_sum(i,k)
+# ArrayPair(i,k)
+pair_sum(i, k)
 print()
 print()
 pai_sum_2(i, k)

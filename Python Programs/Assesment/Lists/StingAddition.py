@@ -6,8 +6,8 @@ Expected output : ['emp1', 'emp2', 'emp3', 'emp4'
 
 '''
 
-list1=[1,2,3,4]
+list1 = [1, 2, 3, 4]
 
-st=input("Enter the Sting")
-sl=[st+str(i) for i in list1]
+st = input("Enter the Sting")
+sl = [st + str(i) for i in list1]
 print(sl)

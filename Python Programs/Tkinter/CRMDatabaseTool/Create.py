@@ -1,15 +1,15 @@
 from tkinter import *
 import sqlite3
 
-root=Tk()
+root = Tk()
 
 root.title("CRM Tool")
-#connect to database
-mydb=sqlite3.connect("Crm.db")
-#createe a cursor
-c=mydb.cursor()
+# connect to database
+mydb = sqlite3.connect("Crm.db")
+# createe a cursor
+c = mydb.cursor()
 
-#create a table if not created
+# create a table if not created
 c.execute("""CREATE TABLE IF NOT EXISTS customers(
 first_name VARCHAR(255),
 last_name VARCHAR(255),
@@ -33,13 +33,12 @@ phone  INTEGER
 
 '''
 
-
-data=c.execute("SELECT * FROM customers")
+data = c.execute("SELECT * FROM customers")
 print(data.description)
 
 for thing in data.description:
     print(thing[0])
-#close the database
+# close the database
 mydb.close()
 
 root.mainloop()

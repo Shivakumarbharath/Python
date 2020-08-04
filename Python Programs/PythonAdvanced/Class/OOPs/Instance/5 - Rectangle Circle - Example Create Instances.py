@@ -5,11 +5,14 @@ class Rectangle:
         self.width = width
         self.color = color
 
+
 my_rectangle = Rectangle(5, 4, "Blue")
+
 
 class Circle:
 
     def __init__(self, radius):
         self.radius = radius
+
 
 my_circle = Circle(8)

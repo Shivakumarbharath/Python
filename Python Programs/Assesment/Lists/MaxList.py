@@ -6,10 +6,9 @@ Expected Output: [10, 11, 12]
 
 '''
 
-a=[[1,2,3], [4,5,6], [10,11,12], [7,8,9]]
+a = [[1, 2, 3], [4, 5, 6], [10, 11, 12], [7, 8, 9]]
 
-print(max(a,key=sum))
-
+print(max(a, key=sum))
 
 '''
 
@@ -17,9 +16,8 @@ Write a Python program to find all the values in a list are greater than a speci
 
 '''
 
-n=3
+n = 3
 
-lst=[1,2,3,4,5,6,10,11,12,23]
+lst = [1, 2, 3, 4, 5, 6, 10, 11, 12, 23]
 
-
-print(list(map(lambda x: x if x >n  else lst.remove(x) , lst)))
+print(list(map(lambda x: x if x > n else lst.remove(x), lst)))

@@ -8,8 +8,8 @@ Expected Output: [1, 3, 5, 7, 9, 2, 4, 6, 8]
 '''
 import itertools
 
-list1=[1, 3, 5, 7, 9, 10]
-list2=[2, 4, 6, 8]
+list1 = [1, 3, 5, 7, 9, 10]
+list2 = [2, 4, 6, 8]
 list1.remove(list1[-1])
 
-print((list1+list2))
+print((list1 + list2))

@@ -1,19 +1,15 @@
 from tkinter import *
 import sqlite3
 
-
-root=Tk()
+root = Tk()
 root.geometry('500x500+100+100')
 root.title("My-to-List")
-root.resizable(0,0)
-main_menu=Menu(root)
+root.resizable(0, 0)
+main_menu = Menu(root)
 root.config(menu=main_menu)
 
-
-file=Menu(main_menu,tearoff=False)
-main_menu.add_cascade(label="file",menu=file)
-
-
+file = Menu(main_menu, tearoff=False)
+main_menu.add_cascade(label="file", menu=file)
 
 
 class Create_Category:
@@ -244,10 +240,11 @@ class Create_Category:
 
         self.del_wind.destroy()
 
+
 def Retrive_catagories():
     database = sqlite3.connect("DO_Not_Delete.db")
     c = database.cursor()
-    details=[]
+    details = []
     try:
         details = c.execute("SELECT oid,* FROM frames").fetchall()
     except:
@@ -255,41 +252,37 @@ def Retrive_catagories():
                     tasks TEXT 
                     )""")
 
-
     database.commit()
     database.close()
 
-    types=[]
+    types = []
 
     for e in details:
-
-        var=file.add_command(label=e[1], command=lambda  k=e[1] : Call_category(k))
+        var = file.add_command(label=e[1], command=lambda k=e[1]: Call_category(k))
         print(var)
         types.append(var)
 
-
-    print(types,'268')
-
+    print(types, '268')
 
     print(details)
 
 
 def Call_category(name):
-    if root.winfo_exists()==1:
-        for e in  root.winfo_children()[1:]:
+    if root.winfo_exists() == 1:
+        for e in root.winfo_children()[1:]:
             e.destroy()
-    Create_Category(root,name)
+    Create_Category(root, name)
     print(root.winfo_children())
 
 
 def Create_Category_menu(name):
-    #Hide_all_frames()
+    # Hide_all_frames()
     global frames
-    frame=Frame(root,bg='blue')
-    #frames.append(frame)
-    #label=Label(frames[-1],text=name)
-    #(frames[-1]).pack()
-    #label.pack()
+    frame = Frame(root, bg='blue')
+    # frames.append(frame)
+    # label=Label(frames[-1],text=name)
+    # (frames[-1]).pack()
+    # label.pack()
 
     database = sqlite3.connect("DO_Not_Delete.db")
     c = database.cursor()
@@ -299,8 +292,6 @@ def Create_Category_menu(name):
 
     c.execute("""INSERT INTO frames
             VALUES ('{}')""".format(name))
-
-
 
     database.commit()
     database.close()
@@ -312,26 +303,25 @@ def Newframe(name):
     new_create.destroy()
     file.delete("Exit")
 
-    #Retrive_catagories()
-    file.add_command(label=name,command=lambda:Create_Category_menu(name))
+    # Retrive_catagories()
+    file.add_command(label=name, command=lambda: Create_Category_menu(name))
     file.add_command(label="Exit", command=root.quit)
 
 
 def New():
     global new_create
-    new_create=Toplevel()
-    name_of_category=Entry(new_create)
+    new_create = Toplevel()
+    name_of_category = Entry(new_create)
     name_of_category.pack()
 
-    add_button=Button(new_create,text="Create",command=lambda:Newframe(name_of_category.get()) )
+    add_button = Button(new_create, text="Create", command=lambda: Newframe(name_of_category.get()))
     add_button.pack()
 
 
-file.add_command(label="New",command=New)
+file.add_command(label="New", command=New)
 file.add_separator()
 Retrive_catagories()
 
-file.add_command(label="Exit",command=root.quit)
+file.add_command(label="Exit", command=root.quit)
 
 root.mainloop()
-

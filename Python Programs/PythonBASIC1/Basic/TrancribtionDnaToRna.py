@@ -1,12 +1,12 @@
-given=input('Enter the Nucletide')
+given = input('Enter the Nucletide')
 for char in given:
-    if char is not 'A' and char is not 'T' and char is not 'C' and char is not'G':
+    if char is not 'A' and char is not 'T' and char is not 'C' and char is not 'G':
         print('invalid')
         break
 for i in given:
-    if char is not 'A' and char is not 'T' and char is not 'C' and char is not'G':
+    if char is not 'A' and char is not 'T' and char is not 'C' and char is not 'G':
         break
-    if i is'C':
+    if i is 'C':
         print('G', end='')
 
     if i is 'G':
@@ -17,4 +17,3 @@ for i in given:
 
     if i is 'T':
         print('A', end='')
-
