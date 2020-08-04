@@ -68,3 +68,29 @@ plt.savefig('cloud.png')
 
 # Display the image
 plt.show()
+
+'''
+good afternoon 
+im bharathn
+pursuiung my eng in electronics and comm eng from nmit
+
+ive been trying  to improve my skill set in this peroid of lockdown
+
+ive been working with python and built pretty basic projects in it
+
+im passionate about learn new tech which leads me to take iot course my college
+
+as i learnt that he company is deaeling with ai
+ 
+i hope i would learn new things and add more value to the company
+
+i always wanted to work for ai
+
+Thank you for providing the oppurtunity to learn and work for the company
+I hope i would ennce my problem solving skills here
+
+
+
+any questions
+yes what is my opuurtuntity to grow in this field
+'''
